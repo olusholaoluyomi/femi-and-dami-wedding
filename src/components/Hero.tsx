@@ -22,16 +22,27 @@ const Hero: React.FC = () => {
         
         <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
         
-        <p className="font-serif text-xl md:text-2xl text-dark-soft italic mb-8">
-          Where Purpose Met Peace
+        {/* Main Tagline */}
+        <p className="font-serif text-xl md:text-2xl text-dark-soft italic mb-4">
+          #TheHesed - Where Purpose Met Peace 
+        </p>
+
+        {/* Hashtag Meaning */}
+        <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+          Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> is a Hebrew word from 
+          the Bible that describes God's faithful, covenantal love — the kind that keeps promises 
+          and never gives up. It’s our reminder that our marriage is built on that same kind of 
+          loyal, action-oriented love.
         </p>
         
+        {/* Event Date & Venue */}
         <div className="glass-effect px-8 py-4 rounded-full inline-block mb-8">
           <p className="font-sans text-lg text-mocha font-medium">
             December 10th, 2025 • United Mission Church of Africa (UMCA) Chapel, Tanke, Ilorin, Kwara State. Nigeria.
           </p>
         </div>
         
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
             href="#rsvp" 
