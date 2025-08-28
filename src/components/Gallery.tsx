@@ -54,9 +54,6 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           </div>
-          <button className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
-            View Full Gallery
-          </button>
         </div>
       </div>
     </section>
