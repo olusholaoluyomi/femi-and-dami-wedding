@@ -29,23 +29,6 @@ const Gallery: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {images.map((image, index) => (
-            <div 
-              key={index} 
-              className="group relative overflow-hidden rounded-2xl aspect-square hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
-            >
-              <img 
-                src={image} 
-                alt={`Gallery image ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-mocha/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 border-4 border-gold/20 rounded-2xl group-hover:border-gold/40 transition-colors duration-300"></div>
-            </div>
-          ))}
-        </div>
-
         <div className="text-center mt-12">
           <div className="glass-effect p-8 rounded-3xl max-w-4xl mx-auto mb-8">
             <div className="grid md:grid-cols-2 gap-8">
