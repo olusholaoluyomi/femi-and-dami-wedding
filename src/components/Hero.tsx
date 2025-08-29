@@ -53,3 +53,6 @@ const Hero: React.FC = () => {
           and never gives up. It's our reminder that our marriage is built on that same kind of
           unwavering love and commitment.
         </p>
+
+  )
+}
