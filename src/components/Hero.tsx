@@ -28,15 +28,12 @@ const Hero: React.FC = () => {
         </div>
         
         <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-mocha mb-4 text-shadow-soft">
-          Dami & Femi
+          Dami wed Femi
         </h1>
         
         <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
         
         {/* Main Tagline */}
-        <p className="font-serif text-xl md:text-2xl text-dark-soft italic mb-4">
-          #TheHesed - Where Purpose Met Peace 
-        </p>
 
         {/* Hashtag Meaning */}
         <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
