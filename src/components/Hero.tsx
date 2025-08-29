@@ -16,6 +16,15 @@ const Hero: React.FC = () => {
           <Heart className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse" />
         </div>
         
+        {/* Couples Logo */}
+        <div className="mb-8">
+          <img 
+            src="/src/assets/photo_2025-08-25_18-21-25-removebg-preview.png" 
+            alt="Dami & Femi Logo" 
+            className="w-32 h-32 mx-auto object-contain"
+          />
+        </div>
+        
         <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-mocha mb-4 text-shadow-soft">
           Dami & Femi
         </h1>
