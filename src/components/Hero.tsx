@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         {/* Couples Logo */}
         <div className="mb-8">
           <img 
-            src="/src/assets/updated-logop.png" 
+            src="/updated-logop.png" 
             alt="Dami & Femi Logo" 
             className="w-96 h-96 md:w-[30rem] md:h-[30rem] lg:w-[38rem] lg:h-[38rem] mx-auto object-contain"
           />
