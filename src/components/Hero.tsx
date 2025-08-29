@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           <img 
             src="/src/assets/photo_2025-08-25_18-21-25-removebg-preview.png" 
             alt="Dami & Femi Logo" 
-            className="w-32 h-32 mx-auto object-contain"
+            className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto object-contain"
           />
         </div>
         
