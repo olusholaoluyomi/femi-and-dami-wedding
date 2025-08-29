@@ -26,10 +26,7 @@ const Hero: React.FC = () => {
           />
 
         </div>
-        
-        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-mocha mb-4 text-shadow-soft">
-          Dami wed Femi
-        </h1>
+      
         
         <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
         
