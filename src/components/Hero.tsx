@@ -50,4 +50,6 @@ const Hero: React.FC = () => {
         <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
           Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> is a Hebrew word from 
           the Bible that describes God's faithful, covenantal love — the kind that keeps promises 
-          and never gives up. It’s our reminder that our marriage is built on that same kind of
+          and never gives up. It's our reminder that our marriage is built on that same kind of
+          unwavering love and commitment.
+        </p>
