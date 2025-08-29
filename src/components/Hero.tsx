@@ -54,5 +54,7 @@ const Hero: React.FC = () => {
           unwavering love and commitment.
         </p>
 
+      </div>
+    </section>
   )
 }
