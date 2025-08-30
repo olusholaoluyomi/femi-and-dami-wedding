@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Users } from 'lucide-react';
-import { useToast } from '../context/ToastContext';
+import { Send, Users, X, CheckCircle } from 'lucide-react';
 
 const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,14 +9,19 @@ const RSVP: React.FC = () => {
     attendance: '',
     dietary: '',
     message: '',
-    needsAccommodation: ''
+    needsAccommodation: '',
+    phone: ''
   });
 
-  const { addToast } = useToast();
+  const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
+
+  const showToast = (message: string) => {
+    setToast({message, show: true});
+    setTimeout(() => setToast({message: '', show: false}), 5000);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('RSVP submitted:', formData);
     
     if (formData.needsAccommodation === 'yes') {
@@ -25,6 +29,17 @@ const RSVP: React.FC = () => {
       setTimeout(() => {
         const hotelsSection = document.getElementById('hotels');
         if (hotelsSection) {
+          // Create URL with form data as parameters
+          const params = new URLSearchParams();
+          params.set('success', 'true');
+          if (formData.name) params.set('name', formData.name);
+          if (formData.email) params.set('email', formData.email);
+          if (formData.guests) params.set('guests', formData.guests);
+          if (formData.phone) params.set('phone', formData.phone);
+          
+          // Update URL without reloading the page
+          window.history.replaceState({}, '', `${window.location.pathname}?${params}#hotels`);
+          
           hotelsSection.scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
@@ -32,11 +47,9 @@ const RSVP: React.FC = () => {
         }
       }, 500);
       
-      // Use toast instead of alert
-      addToast('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.', 'success');
+      showToast('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.');
     } else {
-      // Use toast instead of alert
-      addToast('Thank you for your RSVP! We can\'t wait to celebrate with you.', 'success');
+      showToast('Thank you for your RSVP! We can\'t wait to celebrate with you.');
     }
   };
 
@@ -52,6 +65,20 @@ const RSVP: React.FC = () => {
       {/* Background Decorations */}
       <div className="absolute top-20 right-10 w-40 h-40 golden-swirl-2"></div>
       <div className="absolute bottom-10 left-5 w-28 h-28 golden-swirl"></div>
+      
+      {/* Toast Notification */}
+      {toast.show && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 border-l-4 border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-lg max-w-md w-full mx-4 flex items-center gap-3">
+          <CheckCircle className="w-5 h-5" />
+          <span className="flex-1 font-sans">{toast.message}</span>
+          <button
+            onClick={() => setToast({message: '', show: false})}
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -99,6 +126,22 @@ const RSVP: React.FC = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gold/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-ivory/50"
                 placeholder="your.email@example.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block font-sans text-mocha font-medium mb-2">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gold/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-ivory/50"
+                placeholder="+234 810 868 0111"
               />
             </div>
 
