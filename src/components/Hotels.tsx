@@ -1,8 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Wifi, Utensils, Car, Coffee, Bath, Dumbbell, Music, Shield, Sun, Snowflake, Tv,
-  Users, Key, Wine, ConciergeBell, Leaf, Star, Briefcase, Hotel, MapPin, X, CheckCircle
-} from 'lucide-react';
+  WifiIcon, 
+  UtensilsIcon, 
+  TruckIcon, 
+  CoffeeIcon, 
+  HomeIcon,
+  BuildingLibraryIcon,
+  MusicalNoteIcon,
+  SunIcon,
+  SnowflakeIcon,
+  TvIcon,
+  UserGroupIcon,
+  KeyIcon,
+  WineIcon,
+  BellIcon,
+  LeafIcon,
+  StarIcon,
+  BriefcaseIcon,
+  BuildingOfficeIcon,
+  MapPinIcon,
+  XMarkIcon,
+  CheckCircleIcon
+} from '@heroicons/react/24/outline';
 
 const Hotels: React.FC = () => {
   const [reservationData, setReservationData] = useState({
@@ -106,72 +125,72 @@ const Hotels: React.FC = () => {
   const getAmenityIcon = (amenity: string) => {
     switch (amenity) {
       // Connectivity
-      case "Free Wi-Fi": return <Wifi className="w-4 h-4" />;
-      case "Wifi": return <Wifi className="w-4 h-4" />;
+      case "Free Wi-Fi": return <WifiIcon className="w-4 h-4" />;
+      case "Wifi": return <WifiIcon className="w-4 h-4" />;
 
       // Food & Drink
-      case "Free breakfast": return <Coffee className="w-4 h-4" />;
-      case "Breakfast": return <Coffee className="w-4 h-4" />;
-      case "Breakfast in the room": return <Coffee className="w-4 h-4" />;
-      case "Child-friendly buffet": return <Coffee className="w-4 h-4" />;
-      case "Restaurant": return <Utensils className="w-4 h-4" />;
-      case "Brunch": return <Utensils className="w-4 h-4" />;
-      case "Lunch": return <Utensils className="w-4 h-4" />;
-      case "Dinner": return <Utensils className="w-4 h-4" />;
-      case "Bar": return <Wine className="w-4 h-4" />;
-      case "Pool bar": return <Wine className="w-4 h-4" />;
+      case "Free breakfast": return <CoffeeIcon className="w-4 h-4" />;
+      case "Breakfast": return <CoffeeIcon className="w-4 h-4" />;
+      case "Breakfast in the room": return <CoffeeIcon className="w-4 h-4" />;
+      case "Child-friendly buffet": return <CoffeeIcon className="w-4 h-4" />;
+      case "Restaurant": return <UtensilsIcon className="w-4 h-4" />;
+      case "Brunch": return <UtensilsIcon className="w-4 h-4" />;
+      case "Lunch": return <UtensilsIcon className="w-4 h-4" />;
+      case "Dinner": return <UtensilsIcon className="w-4 h-4" />;
+      case "Bar": return <WineIcon className="w-4 h-4" />;
+      case "Pool bar": return <WineIcon className="w-4 h-4" />;
 
       // Parking & Transport
-      case "Free parking": return <Car className="w-4 h-4" />;
-      case "Free on-site private parking": return <Car className="w-4 h-4" />;
-      case "Car hire": return <Car className="w-4 h-4" />;
+      case "Free parking": return <TruckIcon className="w-4 h-4" />;
+      case "Free on-site private parking": return <TruckIcon className="w-4 h-4" />;
+      case "Car hire": return <TruckIcon className="w-4 h-4" />;
 
       // Wellness & Relaxation
-      case "Spa facilities": return <ConciergeBell className="w-4 h-4" />;
-      case "Spa & wellness center": return <ConciergeBell className="w-4 h-4" />;
-      case "Wellness center": return <ConciergeBell className="w-4 h-4" />;
-      case "Sauna": return <Bath className="w-4 h-4" />;
-      case "Hot tub": return <Bath className="w-4 h-4" />;
-      case "Jacuzzi": return <Bath className="w-4 h-4" />;
+      case "Spa facilities": return <HomeIcon className="w-4 h-4" />;
+      case "Spa & wellness center": return <HomeIcon className="w-4 h-4" />;
+      case "Wellness center": return <HomeIcon className="w-4 h-4" />;
+      case "Sauna": return <HomeIcon className="w-4 h-4" />;
+      case "Hot tub": return <HomeIcon className="w-4 h-4" />;
+      case "Jacuzzi": return <HomeIcon className="w-4 h-4" />;
       case "Outdoor pool": return <div className="w-4 h-4 bg-current rounded-full" />;
       case "Outdoor swimming pool": return <div className="w-4 h-4 bg-current rounded-full" />;
       case "Pool": return <div className="w-4 h-4 bg-current rounded-full" />;
 
       // Fitness
-      case "Fitness room": return <Dumbbell className="w-4 h-4" />;
-      case "Fitness center": return <Dumbbell className="w-4 h-4" />;
+      case "Fitness room": return <BriefcaseIcon className="w-4 h-4" />;
+      case "Fitness center": return <BriefcaseIcon className="w-4 h-4" />;
 
       // Rooms & Comfort
-      case "Air-conditioned": return <Snowflake className="w-4 h-4" />;
-      case "Air-conditioning": return <Snowflake className="w-4 h-4" />;
-      case "Room service": return <ConciergeBell className="w-4 h-4" />;
-      case "Private check-in and check-out": return <Key className="w-4 h-4" />;
-      case "Family rooms": return <Users className="w-4 h-4" />;
-      case "Terrace": return <Sun className="w-4 h-4" />;
-      case "Terrace & lounge": return <Sun className="w-4 h-4" />;
-      case "Outdoor seating area": return <Sun className="w-4 h-4" />;
-      case "Smoke-free": return <Leaf className="w-4 h-4" />;
+      case "Air-conditioned": return <SnowflakeIcon className="w-4 h-4" />;
+      case "Air-conditioning": return <SnowflakeIcon className="w-4 h-4" />;
+      case "Room service": return <BellIcon className="w-4 h-4" />;
+      case "Private check-in and check-out": return <KeyIcon className="w-4 h-4" />;
+      case "Family rooms": return <UserGroupIcon className="w-4 h-4" />;
+      case "Terrace": return <SunIcon className="w-4 h-4" />;
+      case "Terrace & lounge": return <SunIcon className="w-4 h-4" />;
+      case "Outdoor seating area": return <SunIcon className="w-4 h-4" />;
+      case "Smoke-free": return <LeafIcon className="w-4 h-4" />;
 
       // Entertainment
-      case "Nightclub": return <Music className="w-4 h-4" />;
-      case "Nightclub & live music": return <Music className="w-4 h-4" />;
-      case "Live music": return <Music className="w-4 h-4" />;
+      case "Nightclub": return <MusicalNoteIcon className="w-4 h-4" />;
+      case "Nightclub & live music": return <MusicalNoteIcon className="w-4 h-4" />;
+      case "Live music": return <MusicalNoteIcon className="w-4 h-4" />;
 
       // Services
-      case "Laundry service": return <Briefcase className="w-4 h-4" />;
-      case "Daily housekeeping": return <Briefcase className="w-4 h-4" />;
-      case "Beauty services": return <Star className="w-4 h-4" />;
-      case "Full-day security": return <Shield className="w-4 h-4" />;
-      case "Security Personnel": return <Shield className="w-4 h-4" />;
-      case "24-hour front desk": return <Key className="w-4 h-4" />;
+      case "Laundry service": return <BriefcaseIcon className="w-4 h-4" />;
+      case "Daily housekeeping": return <BriefcaseIcon className="w-4 h-4" />;
+      case "Beauty services": return <StarIcon className="w-4 h-4" />;
+      case "Full-day security": return <KeyIcon className="w-4 h-4" />;
+      case "Security Personnel": return <KeyIcon className="w-4 h-4" />;
+      case "24-hour front desk": return <KeyIcon className="w-4 h-4" />;
 
       // Media / Room Features
-      case "Flat-screen TV": return <Tv className="w-4 h-4" />;
-      case "Satellite TV": return <Tv className="w-4 h-4" />;
-      case "Workspace": return <Tv className="w-4 h-4" />;
+      case "Flat-screen TV": return <TvIcon className="w-4 h-4" />;
+      case "Satellite TV": return <TvIcon className="w-4 h-4" />;
+      case "Workspace": return <BriefcaseIcon className="w-4 h-4" />;
 
       // Fallback
-      default: return <Star className="w-4 h-4" />;
+      default: return <StarIcon className="w-4 h-4" />;
     }
   };
 
@@ -184,20 +203,20 @@ const Hotels: React.FC = () => {
       {/* Toast Notification */}
       {toast.show && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 border-l-4 border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-lg max-w-md w-full mx-4 flex items-center gap-3">
-          <CheckCircle className="w-5 h-5" />
+          <CheckCircleIcon className="w-5 h-5" />
           <span className="flex-1 font-sans">{toast.message}</span>
           <button
             onClick={() => setToast({message: '', show: false})}
             className="text-gray-500 hover:text-gray-700 transition-colors"
           >
-            <X className="w-4 h-4" />
+            <XMarkIcon className="w-4 h-4" />
           </button>
         </div>
       )}
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <Hotel className="w-12 h-12 text-gold mx-auto mb-6" />
+          <BuildingOfficeIcon className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Accommodations
           </h2>
@@ -217,11 +236,11 @@ const Hotels: React.FC = () => {
                 </h3>
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(hotel.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-gold fill-current" />
+                    <StarIcon key={i} className="w-4 h-4 text-gold fill-current" />
                   ))}
                 </div>
                 <div className="flex items-center text-sm text-dark-soft mb-2">
-                  <MapPin className="w-4 h-4 mr-1 text-gold" />
+                  <MapPinIcon className="w-4 h-4 mr-1 text-gold" />
                   {hotel.distance}
                 </div>
               </div>
