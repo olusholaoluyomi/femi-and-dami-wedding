@@ -47,6 +47,21 @@ const Tourism: React.FC = () => {
     }
   ];
 
+  const scrollToContacts = () => {
+    // Wait a brief moment to ensure the DOM is fully updated
+    setTimeout(() => {
+      const contactsSection = document.getElementById('contacts');
+      if (contactsSection) {
+        contactsSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        console.warn('Contacts section not found. Make sure the Contacts component has id="contacts"');
+      }
+    }, 100);
+  };
+
   return (
     <section className="py-20 px-4 bg-ivory relative overflow-hidden">
       {/* Background Decorations */}
@@ -122,12 +137,12 @@ const Tourism: React.FC = () => {
               Need help exploring Ilorin? Our local contacts can help arrange tours and plan your perfect visit to Kwara State.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="#contacts"
+              <button
+                onClick={scrollToContacts}
                 className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Contact Us
-              </a>
+              </button>
               <a 
                 href="https://kwarastate.gov.ng" 
                 target="_blank" 
