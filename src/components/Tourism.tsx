@@ -33,17 +33,17 @@ const Tourism: React.FC = () => {
     },
     {
       icon: <Wine className="w-8 h-8" />,
-      title: "Pategi Regatta",
-      description: "Experience the annual fishing festival and river culture",
-      locations: ["River Niger", "Pategi", "Cultural Festival"],
-      image: "https://images.pexels.com/photos/1407846/pexels-photo-1407846.jpeg"
+      title: "Dada Pottery",
+      description: "Africa's largest women pottery collective showcasing creativity and tradition",
+      locations: ["Meet innovative women artisans", "Pottery Demonstrations", "Handmade Souvenirs", "Workshops & Classes"],
+      image: "https://static.wixstatic.com/media/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg"
     },
     {
       icon: <Car className="w-8 h-8" />,
       title: "Shopping & Markets",
       description: "Explore vibrant local markets and shopping centers",
-      locations: ["Mandate Market", "Shoprite Ilorin", "Local Crafts"],
-      image: "https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg"
+      locations: ["Emirate Mall", "Mandate Market", "Shoprite Ilorin", "Local Crafts"],
+      image: "https://i.ytimg.com/vi/TbORgLmpCRw/maxresdefault.jpg"
     }
   ];
 
