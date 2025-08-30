@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wifi, Utensils, Car, Bath, Dumbbell, Music, Shield, Sun, Snowflake, Tv, Users, Key, Wine, ConciergeBell, Leaf, Star, Briefcase, Hotel, MapPin, Star, Wifi, Car, Utensils } from 'lucide-react';
+import { Wifi, Utensils, Car, Bath, Dumbbell, Music, Shield, Sun, Snowflake, Tv, Users, Key, Wine, ConciergeBell, Leaf, Star, Briefcase, Hotel, MapPin, Coffee,Star, Wifi, Car, Utensils } from 'lucide-react';
 
 
 const Hotels: React.FC = () => {
