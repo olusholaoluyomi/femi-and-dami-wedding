@@ -14,8 +14,8 @@ const Tourism: React.FC = () => {
       icon: <Camera className="w-8 h-8" />,
       title: "Esie Museum", 
       description: "Explore ancient stone sculptures and rich Yoruba cultural heritage",
-      locations: ["Esie Museum", "Stone Figures", "Cultural Center"],
-      image: "https://images.pexels.com/photos/1152254/pexels-photo-1152254.jpeg"
+      locations: ["Soapstone Mystery", "History Shrine", "Cultural & Historical Tour", "Art Appreciation", "Photography Spots", "Guided Museum Experience", "Local Craft Exploration", "One with History", "Learning & Discovery", "Family Outing"],
+      image: "https://www.thehopenewspaper.com/wp-content/uploads/2024/02/Jog-78.jpg"
     },
     {
       icon: <Utensils className="w-8 h-8" />,
