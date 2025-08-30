@@ -31,10 +31,10 @@ const Contacts: React.FC = () => {
           </h2>
           <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
           <p className="font-sans text-lg text-dark-soft max-w-2xl mx-auto">
-            Have questions about the wedding? Questions about accommodations, transportation, or other wedding details, 
-              you can also reach out to our us. Feel free to reach out to either of us, but know the earlier the better
+            Have questions about the wedding? Questions about accommodations, transportation, or other wedding details,you can also reach out to our us. Feel free to reach out to either of us, but know the earlier the better
           </p>
-        </div
+        </div>
+        
 
         <div className="grid md:grid-cols-2 gap-8">
           {contacts.map((contact, index) => (
