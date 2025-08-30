@@ -18,7 +18,7 @@ const Contacts: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-ivory relative overflow-hidden">
+    <section id="contacts" className="py-20 px-4 bg-ivory relative overflow-hidden"> {/* Added id="contacts" here */}
       {/* Background Decorations */}
       <div className="absolute top-16 left-5 w-32 h-32 golden-swirl"></div>
       <div className="absolute bottom-24 right-10 w-24 h-24 bg-gold opacity-5 organic-shape-2"></div>
@@ -58,6 +58,17 @@ const Contacts: React.FC = () => {
                 >
                   <Phone className="w-5 h-5 text-gold" />
                   <span className="font-sans">{contact.phone}</span>
+                </a>
+                
+                {/* Added WhatsApp link */}
+                <a 
+                  href={`https://wa.me/${contact.phone.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 text-dark-soft hover:text-mocha transition-colors duration-300"
+                >
+                  <MessageCircle className="w-5 h-5 text-gold" />
+                  <span className="font-sans">Send WhatsApp Message</span>
                 </a>
               </div>
 
