@@ -19,10 +19,10 @@ const Tourism: React.FC = () => {
     },
     {
       icon: <Utensils className="w-8 h-8" />,
-      title: "Local Cuisine",
-      description: "Taste authentic Yoruba delicacies and local specialties",
-      locations: ["Amala & Ewedu", "Suya Spots", "Local Markets"],
-      image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+      title: "Innovation & Tech",
+description: "Explore cutting-edge technology, startups, and creative spaces in Ilorin",
+locations: ["Co-Working Spaces", "Startup Showcases", "Tech Workshops", "Networking Events", "AI & Robotics Demos"],
+      image: "https://miro.medium.com/v2/resize:fit:1400/1*qKGmxa8aGXgEbnjytY3Shg.jpeg"
     },
     {
       icon: <MapPin className="w-8 h-8" />,
