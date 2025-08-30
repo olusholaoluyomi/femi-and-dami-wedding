@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Send, Users, Hotel } from 'lucide-react';
+import { Send, Users } from 'lucide-react';
+import { useToast } from '../context/ToastContext';
 
 const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,10 @@ const RSVP: React.FC = () => {
     attendance: '',
     dietary: '',
     message: '',
-    needsAccommodation: '' // Added accommodation field
+    needsAccommodation: ''
   });
+
+  const { addToast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,9 +32,11 @@ const RSVP: React.FC = () => {
         }
       }, 500);
       
-      alert('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.');
+      // Use toast instead of alert
+      addToast('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.', 'success');
     } else {
-      alert('Thank you for your RSVP! We can\'t wait to celebrate with you.');
+      // Use toast instead of alert
+      addToast('Thank you for your RSVP! We can\'t wait to celebrate with you.', 'success');
     }
   };
 
