@@ -61,14 +61,6 @@ const Contacts: React.FC = () => {
                   <Phone className="w-5 h-5 text-gold" />
                   <span className="font-sans">{contact.phone}</span>
                 </a>
-                
-                <a 
-                  href={`mailto:${contact.email}`}
-                  className="flex items-center justify-center gap-3 text-dark-soft hover:text-mocha transition-colors duration-300"
-                >
-                  <Mail className="w-5 h-5 text-gold" />
-                  <span className="font-sans">{contact.email}</span>
-                </a>
               </div>
 
               <p className="font-sans text-sm text-dark-soft italic">
