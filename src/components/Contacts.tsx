@@ -7,7 +7,6 @@ const Contacts: React.FC = () => {
       name: "Babatunde Oluwadunsin",
       role: "Bride Brother",
       phone: "+234810868011",
-      email: "dami@example.com",
       message: "Feel free to send a Whatsapp message in case you call and I am unable to pick at the moment and vice-versa!"
     },
     {
@@ -61,6 +60,7 @@ const Contacts: React.FC = () => {
                   <Phone className="w-5 h-5 text-gold" />
                   <span className="font-sans">{contact.phone}</span>
                 </a>
+              
               </div>
 
               <p className="font-sans text-sm text-dark-soft italic">
