@@ -4,18 +4,17 @@ import { Phone, Mail, MessageCircle } from 'lucide-react';
 const Contacts: React.FC = () => {
   const contacts = [
     {
-      name: "Babatunde Oluwadamilola",
-      role: "Bride",
-      phone: "+234 xxx xxx xxxx",
+      name: "Babatunde Oluwadunsin",
+      role: "Bride Brother",
+      phone: "+234810868011",
       email: "dami@example.com",
-      message: "So excited to share this special day with you!"
+      message: "Feel free to send a Whatsapp message in case you call and I am unable to pick at the moment and vice-versa!"
     },
     {
-      name: "Oluyomi Olufemi", 
-      role: "Groom",
-      phone: "+234 xxx xxx xxxx",
-      email: "femi@example.com",
-      message: "Can't wait to celebrate our love with family and friends!"
+      name: "Oluyomi Olushola Michael", 
+      role: "Groom Brother",
+      phone: "+2348148075891",
+      message: "Feel free to send a Whatsapp message in case you call and I am unable to pick at the moment and vice-versa!"
     }
   ];
 
