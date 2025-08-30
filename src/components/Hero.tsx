@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
+import updatedLogo from '../assets/updated-logop.png';
 
 const Hero: React.FC = () => {
   return (
