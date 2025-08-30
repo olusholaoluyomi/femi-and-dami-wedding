@@ -18,18 +18,18 @@ const Tourism: React.FC = () => {
       image: "https://www.thehopenewspaper.com/wp-content/uploads/2024/02/Jog-78.jpg"
     },
     {
-      icon: <Utensils className="w-8 h-8" />,
+      icon: <Camera className="w-8 h-8" />,
       title: "Innovation & Tech",
-description: "Explore cutting-edge technology, startups, and creative spaces in Ilorin",
-locations: ["Co-Working Spaces", "Startup Showcases", "Tech Workshops", "Networking Events", "AI & Robotics Demos"],
+      description: "Explore cutting-edge technology, startups, and creative spaces in Ilorin",
+      locations: ["Co-Working Spaces", "Startup Showcases", "Tech Workshops", "Networking Events", "AI & Robotics Demos"],
       image: "https://miro.medium.com/v2/resize:fit:1400/1*qKGmxa8aGXgEbnjytY3Shg.jpeg"
     },
     {
       icon: <MapPin className="w-8 h-8" />,
-      title: "Ilorin Emirate",
-      description: "Visit the historic Emir's Palace and learn about local traditions",
-      locations: ["Emir's Palace", "Central Mosque", "Traditional Markets"],
-      image: "https://images.pexels.com/photos/1152254/pexels-photo-1152254.jpeg"
+      title: "Ilorin Flower Garden",
+      description: "Enjoy a peaceful escape surrounded by colorful blooms and landscaped gardens",
+      locations: ["Rose Garden", "Botanical Walks", "Picnic Spots", "Photography Corners", "Butterfly Pavilion"],
+      image: "https://images.mindtrip.ai/attractions/454a/9034/4e13/6562/602e/6332/2ffc/094c"
     },
     {
       icon: <Wine className="w-8 h-8" />,
