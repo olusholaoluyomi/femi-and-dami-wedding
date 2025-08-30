@@ -17,28 +17,31 @@ const Hotels: React.FC = () => {
 
   const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
 
-  // Auto-fill from URL parameters (if coming from RSVP form)
+  // Auto-fill from localStorage (if coming from RSVP form)
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-    const email = urlParams.get('email');
-    const guests = urlParams.get('guests');
-    const phone = urlParams.get('phone');
-    
-    if (name || email || guests || phone) {
-      setReservationData(prev => ({
-        ...prev,
-        ...(name && { name }),
-        ...(email && { email }),
-        ...(guests && { guests }),
-        ...(phone && { phone })
-      }));
-    }
-
-    // Also check if there's a success message to show
-    const success = urlParams.get('success');
-    if (success === 'true') {
-      showToast('Thank you for your RSVP! Please complete your accommodation booking below.');
+    const rsvpData = localStorage.getItem('rsvpData');
+    if (rsvpData) {
+      try {
+        const { name, email, guests, phone } = JSON.parse(rsvpData);
+        console.log('RSVP Data from storage:', { name, email, guests, phone });
+        
+        if (name || email || guests || phone) {
+          setReservationData(prev => ({
+            ...prev,
+            ...(name && { name }),
+            ...(email && { email }),
+            ...(guests && { guests }),
+            ...(phone && { phone })
+          }));
+          
+          showToast('Thank you for your RSVP! Please complete your accommodation booking below.');
+          
+          // Clear the stored data after use
+          localStorage.removeItem('rsvpData');
+        }
+      } catch (error) {
+        console.error('Error parsing RSVP data:', error);
+      }
     }
   }, []);
 
@@ -204,7 +207,7 @@ const Hotels: React.FC = () => {
           </p>
         </div>
 
-        {/* Hotel Options - RESTORED SECTION */}
+        {/* Hotel Options */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {hotels.map((hotel, index) => (
             <div key={index} className="glass-effect p-6 rounded-3xl hover:shadow-xl transition-all duration-300">
