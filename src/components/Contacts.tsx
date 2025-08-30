@@ -34,8 +34,7 @@ const Contacts: React.FC = () => {
             Have questions about the wedding? Questions about accommodations, transportation, or other wedding details,you can also reach out to our us. Feel free to reach out to either of us, but know the earlier the better
           </p>
         </div>
-        
-
+        </div>
         <div className="grid md:grid-cols-2 gap-8">
           {contacts.map((contact, index) => (
             <div key={index} className="glass-effect p-8 rounded-3xl text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
