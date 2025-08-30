@@ -53,16 +53,76 @@ const Hotels: React.FC = () => {
   };
 
   const getAmenityIcon = (amenity: string) => {
-    switch(amenity) {
-      case 'Wifi': return <Wifi className="w-4 h-4" />;
-      case 'Pool': return <div className="w-4 h-4 bg-current rounded-full" />;
-      case 'Restaurant': return <Utensils className="w-4 h-4" />;
-      case 'Spa': return <div className="w-4 h-4 bg-current rounded" />;
-      case 'Golf': return <div className="w-4 h-4 bg-current rounded-full" />;
-      case 'Car': return <Car className="w-4 h-4" />;
-      default: return <Star className="w-4 h-4" />;
-    }
-  };
+  switch (amenity) {
+    // Connectivity
+    case "Free Wi-Fi": return <Wifi className="w-4 h-4" />;
+    case "Wifi": return <Wifi className="w-4 h-4" />;
+
+    // Food & Drink
+    case "Free breakfast": return <Coffee className="w-4 h-4" />;
+    case "Breakfast": return <Coffee className="w-4 h-4" />;
+    case "Breakfast in the room": return <Coffee className="w-4 h-4" />;
+    case "Child-friendly buffet": return <Coffee className="w-4 h-4" />;
+    case "Restaurant": return <Utensils className="w-4 h-4" />;
+    case "Brunch": return <Utensils className="w-4 h-4" />;
+    case "Lunch": return <Utensils className="w-4 h-4" />;
+    case "Dinner": return <Utensils className="w-4 h-4" />;
+    case "Bar": return <Wine className="w-4 h-4" />;
+    case "Pool bar": return <Wine className="w-4 h-4" />;
+
+    // Parking & Transport
+    case "Free parking": return <Car className="w-4 h-4" />;
+    case "Free on-site private parking": return <Car className="w-4 h-4" />;
+    case "Car hire": return <Car className="w-4 h-4" />;
+
+    // Wellness & Relaxation
+    case "Spa facilities": return <ConciergeBell className="w-4 h-4" />;
+    case "Spa & wellness center": return <ConciergeBell className="w-4 h-4" />;
+    case "Wellness center": return <ConciergeBell className="w-4 h-4" />;
+    case "Sauna": return <Bath className="w-4 h-4" />;
+    case "Hot tub": return <Bath className="w-4 h-4" />;
+    case "Jacuzzi": return <Bath className="w-4 h-4" />;
+    case "Outdoor pool": return <div className="w-4 h-4 bg-current rounded-full" />;
+    case "Outdoor swimming pool": return <div className="w-4 h-4 bg-current rounded-full" />;
+    case "Pool": return <div className="w-4 h-4 bg-current rounded-full" />;
+
+    // Fitness
+    case "Fitness room": return <Dumbbell className="w-4 h-4" />;
+    case "Fitness center": return <Dumbbell className="w-4 h-4" />;
+
+    // Rooms & Comfort
+    case "Air-conditioned": return <Snowflake className="w-4 h-4" />;
+    case "Air-conditioning": return <Snowflake className="w-4 h-4" />;
+    case "Room service": return <ConciergeBell className="w-4 h-4" />;
+    case "Private check-in and check-out": return <Key className="w-4 h-4" />;
+    case "Family rooms": return <Users className="w-4 h-4" />;
+    case "Terrace": return <Sun className="w-4 h-4" />;
+    case "Terrace & lounge": return <Sun className="w-4 h-4" />;
+    case "Outdoor seating area": return <Sun className="w-4 h-4" />;
+    case "Smoke-free": return <Leaf className="w-4 h-4" />;
+
+    // Entertainment
+    case "Nightclub": return <Music className="w-4 h-4" />;
+    case "Nightclub & live music": return <Music className="w-4 h-4" />;
+    case "Live music": return <Music className="w-4 h-4" />;
+
+    // Services
+    case "Laundry service": return <Briefcase className="w-4 h-4" />;
+    case "Daily housekeeping": return <Briefcase className="w-4 h-4" />;
+    case "Beauty services": return <Star className="w-4 h-4" />;
+    case "Full-day security": return <Shield className="w-4 h-4" />;
+    case "Security Personnel": return <Shield className="w-4 h-4" />;
+    case "24-hour front desk": return <Key className="w-4 h-4" />;
+
+    // Media / Room Features
+    case "Flat-screen TV": return <Tv className="w-4 h-4" />;
+    case "Satellite TV": return <Tv className="w-4 h-4" />;
+    case "Workspace": return <Tv className="w-4 h-4" />;
+
+    // Fallback
+    default: return <Star className="w-4 h-4" />;
+  }
+};
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-beige to-ivory relative overflow-hidden">
