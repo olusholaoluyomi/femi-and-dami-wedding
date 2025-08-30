@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Users } from 'lucide-react';
+import { Send, Users, Hotel } from 'lucide-react';
 
 const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,14 +8,31 @@ const RSVP: React.FC = () => {
     guests: '1',
     attendance: '',
     dietary: '',
-    message: ''
+    message: '',
+    needsAccommodation: '' // Added accommodation field
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('RSVP submitted:', formData);
-    alert('Thank you for your RSVP! We can\'t wait to celebrate with you.');
+    
+    if (formData.needsAccommodation === 'yes') {
+      // Scroll to hotels section after a brief delay
+      setTimeout(() => {
+        const hotelsSection = document.getElementById('hotels');
+        if (hotelsSection) {
+          hotelsSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 500);
+      
+      alert('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.');
+    } else {
+      alert('Thank you for your RSVP! We can\'t wait to celebrate with you.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -113,6 +130,25 @@ const RSVP: React.FC = () => {
                 <option value="">Please select</option>
                 <option value="yes">Yes, I'll be there!</option>
                 <option value="no">Sorry, can't make it</option>
+              </select>
+            </div>
+
+            {/* Added Accommodation Question */}
+            <div>
+              <label htmlFor="needsAccommodation" className="block font-sans text-mocha font-medium mb-2">
+                Need Accommodation? *
+              </label>
+              <select
+                id="needsAccommodation"
+                name="needsAccommodation"
+                required
+                value={formData.needsAccommodation}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gold/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-ivory/50"
+              >
+                <option value="">Please select</option>
+                <option value="yes">Yes, I need a hotel room</option>
+                <option value="no">No, I have accommodation</option>
               </select>
             </div>
           </div>
