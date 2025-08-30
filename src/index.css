@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Hide the "Made with Bolt" overlay */
+#bolt-overlay, 
+[class*="bolt"], 
+[class*="Bolt"], 
+[data-bolt], 
+iframe[src*="bolt"], 
+iframe[src*="Bolt"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Also check for StackBlitz specific elements */
+#stackblitz-overlay,
+[class*="stackblitz"],
+[class*="StackBlitz"],
+[data-stackblitz] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Prevent iframe injection */
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+body::after {
+  display: none !important;
+}
