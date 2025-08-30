@@ -7,6 +7,7 @@ import Contacts from './components/Contacts';
 import Hotels from './components/Hotels';
 import Tourism from './components/Tourism';
 import './styles/globals.css';
+import { useFavicon } from './hooks/useFavicon';
 
 function App() {
   return (
