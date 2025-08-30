@@ -8,7 +8,7 @@ const Tourism: React.FC = () => {
       title: "Owu Falls",
       description: "Visit one of Nigeria's most spectacular waterfalls in Kwara State",
       locations: ["Owu Falls", "Oke-Ero", "Nature Trails"],
-      image: "https://share.google/images/0u1DHyR6VVEVfRVpF"
+      image: "https://i.ytimg.com/vi/Mg_aEuZ2D7I/hq720.jpg"
     },
     {
       icon: <Camera className="w-8 h-8" />,
