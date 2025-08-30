@@ -3,7 +3,6 @@ import {
   WifiIcon, 
   UtensilsIcon, 
   TruckIcon, 
-  CoffeeIcon, 
   HomeIcon,
   BuildingLibraryIcon,
   MusicalNoteIcon,
@@ -20,7 +19,8 @@ import {
   BuildingOfficeIcon,
   MapPinIcon,
   XMarkIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  BeakerIcon // Replaced CoffeeIcon with BeakerIcon
 } from '@heroicons/react/24/outline';
 
 const Hotels: React.FC = () => {
@@ -128,11 +128,11 @@ const Hotels: React.FC = () => {
       case "Free Wi-Fi": return <WifiIcon className="w-4 h-4" />;
       case "Wifi": return <WifiIcon className="w-4 h-4" />;
 
-      // Food & Drink
-      case "Free breakfast": return <CoffeeIcon className="w-4 h-4" />;
-      case "Breakfast": return <CoffeeIcon className="w-4 h-4" />;
-      case "Breakfast in the room": return <CoffeeIcon className="w-4 h-4" />;
-      case "Child-friendly buffet": return <CoffeeIcon className="w-4 h-4" />;
+      // Food & Drink - Updated from CoffeeIcon to BeakerIcon
+      case "Free breakfast": return <BeakerIcon className="w-4 h-4" />;
+      case "Breakfast": return <BeakerIcon className="w-4 h-4" />;
+      case "Breakfast in the room": return <BeakerIcon className="w-4 h-4" />;
+      case "Child-friendly buffet": return <BeakerIcon className="w-4 h-4" />;
       case "Restaurant": return <UtensilsIcon className="w-4 h-4" />;
       case "Brunch": return <UtensilsIcon className="w-4 h-4" />;
       case "Lunch": return <UtensilsIcon className="w-4 h-4" />;
