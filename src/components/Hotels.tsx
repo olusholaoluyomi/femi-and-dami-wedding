@@ -14,27 +14,27 @@ const Hotels: React.FC = () => {
 
   const hotels = [
     {
-      name: "Kwara Hotel",
+      name: "G-Pinnacle Hotels & Suites Ltd",
+      distance: "10 minutes drive from venue",
+      rating: 5,
+      price: "₦55,000-250,000/night",
+      amenities: ["Free Wi-Fi", "Free breakfast", "Free parking", "Outdoor pool", "Air-conditioned", "Laundry service", "Room service", "Restaurant", "Kitchens in some rooms", "Fitness center", "Bar", "Smoke-free"],
+      description: "Check-In 1:00PM, Check-Out 12:00PM (Noon)"
+    },
+    {
+      name: "G-Pinnacle Signature Hotel",
+      distance: "10 minutes drive from venue", 
+      rating: 5,
+      price: "₦130,000-550,000/night",
+      amenities: ["Spa & wellness center", "Sauna", "Terrace & lounge", "Restaurant", "Bar & pool bar", "Outdoor swimming pool", "Free WiFi", "Fitness center", "Hot tub", "24-hour front desk", "Nightclub & live music", "Family-friendly (buffet, rooms)", "Room service & breakfast in room", "Car hire", "Beauty services", "Outdoor seating area", "Full-day security", "Free parking", "Multiple cuisines (African, Asian, International, etc.)", "Varied breakfast options (continental, buffet, vegetarian, vegan, etc.)"],
+      description: "Check-In 1:30PM, Check-Out 12:00PM (Noon)"
+    },
+    {
+      name: "De Peace Hotel and Suites",
       distance: "5 minutes from venue",
       rating: 5,
-      price: "₦25,000-35,000/night",
-      amenities: ["Pool", "Spa", "Restaurant", "Wifi"],
-      description: "Premier hotel in the heart of Ilorin"
-    },
-    {
-      name: "De Hallmark Hotel",
-      distance: "10 minutes from venue", 
-      rating: 4,
-      price: "₦20,000-30,000/night",
-      amenities: ["Restaurant", "Conference", "Wifi", "Car"],
-      description: "Modern hotel with excellent facilities"
-    },
-    {
-      name: "Golden Tulip Essential",
-      distance: "15 minutes from venue",
-      rating: 4,
-      price: "₦18,000-25,000/night", 
-      amenities: ["Pool", "Restaurant", "Gym", "Wifi"],
+      price: "₦33,000-100,000/night", 
+      amenities: ["Restaurant & Bar", "Free Breakfast (continental/Western)", "Free Wi-Fi", "Free Parking (self & valet)", "24-hour Front Desk", "Air-Conditioning", "Daily Housekeeping & Laundry", "Flat-Screen TV & Satellite Channels", "In-Room Refrigerator & Kettle", "Workspace (Desk, Charging Outlets)", "Safe", "Jacuzzi (in select rooms)", "Conference/Event Facilities", "Security Personnel", "Smoke-Free Property"],
       description: "Comfortable accommodation with modern amenities"
     }
   ];
