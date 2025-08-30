@@ -5,7 +5,6 @@ import {
 } from 'lucide-react';
 
 
-
 const Hotels: React.FC = () => {
   const [reservationData, setReservationData] = useState({
     hotel: '',
