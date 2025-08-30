@@ -45,7 +45,7 @@ const EventDetails: React.FC = () => {
               </div>
 
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/jroJAKaABENag3hUA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-2 text-gold hover:text-gold/80 font-medium transition-colors duration-300"
