@@ -31,23 +31,10 @@ const Contacts: React.FC = () => {
           </h2>
           <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
           <p className="font-sans text-lg text-dark-soft max-w-2xl mx-auto">
-            Have questions about the wedding? Feel free to reach out to either of us
+            Have questions about the wedding? Questions about accommodations, transportation, or other wedding details, 
+              you can also reach out to our us. Feel free to reach out to either of us, but know the earlier the better
           </p>
-        </div>
-        <div className="mt-16 text-center">
-          <div className="glass-effect p-8 rounded-3xl max-w-2xl mx-auto">
-            <h3 className="font-serif text-2xl font-semibold text-mocha mb-4">
-              Wedding Party & Family
-            </h3>
-            <p className="font-sans text-dark-soft mb-4">
-              For questions about accommodations, transportation, or other wedding details, 
-              you can also reach out to our families and wedding party.
-            </p>
-            <p className="font-sans text-sm text-gold font-medium">
-              Contact information available upon request
-            </p>
-          </div>
-        </div>
+        </div
 
         <div className="grid md:grid-cols-2 gap-8">
           {contacts.map((contact, index) => (
