@@ -144,12 +144,12 @@ const Tourism: React.FC = () => {
                 Contact Us
               </button>
               <a 
-                href="https://kwarastate.gov.ng" 
+                href="https://maps.app.goo.gl/XF1m2Coox8gXkhak9" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-mocha text-mocha hover:bg-mocha hover:text-ivory px-8 py-3 rounded-full font-sans font-medium transition-all duration-300"
               >
-                Visit Kwara State
+                Visit Wedding Location
               </a>
             </div>
           </div>
