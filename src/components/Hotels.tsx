@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Wifi, Utensils, Car, Coffee, Bath, Dumbbell, Music, Shield, Sun, Snowflake, Tv,
   Users, Key, Wine, ConciergeBell, Leaf, Star, Briefcase, Hotel, MapPin
 } from 'lucide-react';
-
 
 const Hotels: React.FC = () => {
   const [reservationData, setReservationData] = useState({
@@ -15,6 +14,23 @@ const Hotels: React.FC = () => {
     email: '',
     phone: ''
   });
+
+  // Auto-fill from URL parameters (if coming from RSVP form)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const email = urlParams.get('email');
+    const guests = urlParams.get('guests');
+    
+    if (name || email || guests) {
+      setReservationData(prev => ({
+        ...prev,
+        ...(name && { name }),
+        ...(email && { email }),
+        ...(guests && { guests })
+      }));
+    }
+  }, []);
 
   const hotels = [
     {
@@ -47,6 +63,17 @@ const Hotels: React.FC = () => {
     e.preventDefault();
     console.log('Hotel reservation:', reservationData);
     alert('Reservation request submitted! The hotel will contact you to confirm.');
+    
+    // Clear form after submission
+    setReservationData({
+      hotel: '',
+      checkin: '',
+      checkout: '',
+      guests: '2',
+      name: '',
+      email: '',
+      phone: ''
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -129,7 +156,7 @@ const Hotels: React.FC = () => {
 };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-beige to-ivory relative overflow-hidden">
+    <section id="hotels" className="py-20 px-4 bg-gradient-to-b from-beige to-ivory relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-32 right-5 w-36 h-36 golden-swirl-2"></div>
       <div className="absolute bottom-20 left-10 w-28 h-28 golden-swirl"></div>
