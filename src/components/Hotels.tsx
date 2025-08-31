@@ -7,7 +7,6 @@ import {
   BuildingLibraryIcon,
   MusicalNoteIcon,
   SunIcon,
-  SnowflakeIcon,
   TvIcon,
   UserGroupIcon,
   KeyIcon,
@@ -161,15 +160,14 @@ const Hotels: React.FC = () => {
       case "Fitness center": return <BriefcaseIcon className="w-4 h-4" />;
 
       // Rooms & Comfort
-      case "Air-conditioned": return <SnowflakeIcon className="w-4 h-4" />;
-      case "Air-conditioning": return <SnowflakeIcon className="w-4 h-4" />;
+      case "Air-conditioned": return <SunIcon className="w-4 h-4" />;
+      case "Air-conditioning": return <SunIcon className="w-4 h-4" />;
       case "Room service": return <BellIcon className="w-4 h-4" />;
       case "Private check-in and check-out": return <KeyIcon className="w-4 h-4" />;
       case "Family rooms": return <UserGroupIcon className="w-4 h-4" />;
       case "Terrace": return <SunIcon className="w-4 h-4" />;
       case "Terrace & lounge": return <SunIcon className="w-4 h-4" />;
       case "Outdoor seating area": return <SunIcon className="w-4 h-4" />;
-      case "Smoke-free": return <LeafIcon className="w-4 h-4" />;
       case "Smoke-free": return <NoSymbolIcon className="w-4 h-4" />;
 
       // Entertainment
