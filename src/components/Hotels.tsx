@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   WifiIcon, 
-  UtensilsIcon, 
+  BuildingStorefrontIcon,
   TruckIcon, 
   HomeIcon,
   BuildingLibraryIcon,
