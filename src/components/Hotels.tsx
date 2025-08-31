@@ -133,9 +133,9 @@ const Hotels: React.FC = () => {
       case "Breakfast in the room": return <BeakerIcon className="w-4 h-4" />;
       case "Child-friendly buffet": return <BeakerIcon className="w-4 h-4" />;
       case "Restaurant": return <UtensilsIcon className="w-4 h-4" />;
-      case "Brunch": return <UtensilsIcon className="w-4 h-4" />;
-      case "Lunch": return <UtensilsIcon className="w-4 h-4" />;
-      case "Dinner": return <UtensilsIcon className="w-4 h-4" />;
+      case "Brunch": return <BuildingStorefrontIcon className="w-4 h-4" />;
+      case "Lunch": return <BuildingStorefrontIcon className="w-4 h-4" />;
+      case "Dinner": return <BuildingStorefrontIcon className="w-4 h-4" />;
       case "Bar": return <WineIcon className="w-4 h-4" />;
       case "Pool bar": return <WineIcon className="w-4 h-4" />;
 

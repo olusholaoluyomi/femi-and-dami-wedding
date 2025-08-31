@@ -3,7 +3,6 @@ import {
   CameraIcon, 
   WineIcon, 
   MountainIcon, 
-  UtensilsIcon, 
   TruckIcon, 
   MapPinIcon 
 } from '@heroicons/react/24/outline';
