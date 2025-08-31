@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   CameraIcon, 
-  MountainIcon, 
+  GlobeAltIcon, 
   TruckIcon, 
   MapPinIcon 
 } from '@heroicons/react/24/outline';
@@ -9,7 +9,7 @@ import {
 const Tourism: React.FC = () => {
   const attractions = [
     {
-      icon: <MountainIcon className="w-8 h-8" />,
+      icon: <GlobeAltIcon className="w-8 h-8" />,
       title: "Owu Falls",
       description: "Visit one of West Africa's most spectacular waterfalls in Kwara State",
       locations: ["Hiking Experience", "One with Nature", "Road Trip", "Photography Spots", "Picnic & Relaxation", "Bird Watching", "Swimming in Natural Pools", "Adventure & Exploration", "Camping Experience"],
