@@ -1,10 +1,5 @@
 import React from 'react';
-import { 
-  CalendarIcon, 
-  ClockIcon, 
-  MapPinIcon, 
-  ShirtIcon 
-} from '@heroicons/react/24/outline';
+import { Calendar, Clock, MapPin, Shirt } from 'lucide-react';
 
 const EventDetails: React.FC = () => {
   return (
@@ -45,7 +40,7 @@ const EventDetails: React.FC = () => {
 
               {/* Time Info */}
               <div className="flex items-center justify-center gap-2 text-dark-soft mb-4">
-                <ClockIcon className="w-5 h-5 text-gold" />
+                <Clock className="w-5 h-5 text-gold" />
                 <span className="font-sans">9:00 AM - 11:00 AM WAT</span>
               </div>
 
@@ -88,7 +83,7 @@ const EventDetails: React.FC = () => {
 
               {/* Time Info */}
               <div className="flex items-center justify-center gap-2 text-dark-soft mb-2">
-                <ClockIcon className="w-5 h-5 text-gold" />
+                <Clock className="w-5 h-5 text-gold" />
                 <span className="font-sans">12:00 PM till Mama calls</span>
               </div>
 

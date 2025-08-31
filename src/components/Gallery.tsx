@@ -1,5 +1,5 @@
 import React from 'react';
-import { CameraIcon } from '@heroicons/react/24/outline';
+import { Camera } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const images = [
@@ -19,7 +19,7 @@ const Gallery: React.FC = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <CameraIcon className="w-12 h-12 text-gold mx-auto mb-6" />
+          <Camera className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Our Love Story
           </h2>
