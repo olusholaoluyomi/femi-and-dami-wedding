@@ -185,7 +185,18 @@ const Hotels: React.FC = () => {
       // Media / Room Features
       case "Flat-screen TV": return <TvIcon className="w-4 h-4" />;
       case "Satellite TV": return <TvIcon className="w-4 h-4" />;
+      case "Flat-Screen TV & Satellite Channels": return <TvIcon className="w-4 h-4" />;
       case "Workspace": return <BriefcaseIcon className="w-4 h-4" />;
+      case "Workspace (Desk, Charging Outlets)": return <BriefcaseIcon className="w-4 h-4" />;
+      case "In-Room Refrigerator & Kettle": return <HomeIcon className="w-4 h-4" />;
+      case "Safe": return <KeyIcon className="w-4 h-4" />;
+      case "Jacuzzi (in select rooms)": return <HomeIcon className="w-4 h-4" />;
+      case "Conference/Event Facilities": return <BuildingLibraryIcon className="w-4 h-4" />;
+      case "Smoke-Free Property": return <NoSymbolIcon className="w-4 h-4" />;
+      case "Daily Housekeeping & Laundry": return <BriefcaseIcon className="w-4 h-4" />;
+      case "Free Parking (self & valet)": return <TruckIcon className="w-4 h-4" />;
+      case "Free Breakfast (continental/Western)": return <BeakerIcon className="w-4 h-4" />;
+      case "Restaurant & Bar": return <BuildingStorefrontIcon className="w-4 h-4" />;
 
       // Fallback
       default: return <StarIcon className="w-4 h-4" />;
