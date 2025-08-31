@@ -10,7 +10,6 @@ import {
   TvIcon,
   UserGroupIcon,
   KeyIcon,
-  WineIcon,
   BellIcon,
   NoSymbolIcon,
   StarIcon,
@@ -137,7 +136,7 @@ const Hotels: React.FC = () => {
       case "Lunch": return <BuildingStorefrontIcon className="w-4 h-4" />;
       case "Dinner": return <BuildingStorefrontIcon className="w-4 h-4" />;
       case "Bar": return <WineIcon className="w-4 h-4" />;
-      case "Pool bar": return <WineIcon className="w-4 h-4" />;
+      case "Pool bar": return <BeakerIcon className="w-4 h-4" />;
 
       // Parking & Transport
       case "Free parking": return <TruckIcon className="w-4 h-4" />;

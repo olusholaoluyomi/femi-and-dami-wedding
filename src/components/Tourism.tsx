@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   CameraIcon, 
-  WineIcon, 
   MountainIcon, 
   TruckIcon, 
   MapPinIcon 
@@ -38,7 +37,7 @@ const Tourism: React.FC = () => {
       image: "https://images.mindtrip.ai/attractions/454a/9034/4e13/6562/602e/6332/2ffc/094c"
     },
     {
-      icon: <WineIcon className="w-8 h-8" />,
+      icon: <CameraIcon className="w-8 h-8" />,
       title: "Dada Pottery",
       description: "Africa's largest women pottery collective showcasing creativity and tradition",
       locations: ["Meet innovative women artisans", "Pottery Demonstrations", "Handmade Souvenirs", "Workshops & Classes"],
