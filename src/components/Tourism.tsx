@@ -1,50 +1,45 @@
 import React from 'react';
-import { 
-  CameraIcon, 
-  GlobeAltIcon, 
-  TruckIcon, 
-  MapPinIcon 
-} from '@heroicons/react/24/outline';
+import { Camera, Wine, Mountain, Utensils, Car, MapPin } from 'lucide-react';
 
 const Tourism: React.FC = () => {
   const attractions = [
     {
-      icon: <GlobeAltIcon className="w-8 h-8" />,
+      icon: <Mountain className="w-8 h-8" />,
       title: "Owu Falls",
       description: "Visit one of West Africa's most spectacular waterfalls in Kwara State",
       locations: ["Hiking Experience", "One with Nature", "Road Trip", "Photography Spots", "Picnic & Relaxation", "Bird Watching", "Swimming in Natural Pools", "Adventure & Exploration", "Camping Experience"],
       image: "https://i.ytimg.com/vi/Mg_aEuZ2D7I/hq720.jpg"
     },
     {
-      icon: <CameraIcon className="w-8 h-8" />,
+      icon: <Camera className="w-8 h-8" />,
       title: "Esie Museum", 
       description: "Explore ancient stone sculptures and rich Yoruba cultural heritage",
       locations: ["Soapstone Mystery", "History Shrine", "Cultural & Historical Tour", "Art Appreciation", "Photography Spots", "Guided Museum Experience", "Local Craft Exploration", "One with History", "Learning & Discovery", "Family Outing"],
       image: "https://www.thehopenewspaper.com/wp-content/uploads/2024/02/Jog-78.jpg"
     },
     {
-      icon: <CameraIcon className="w-8 h-8" />,
+      icon: <Camera className="w-8 h-8" />,
       title: "Innovation & Tech",
       description: "Explore cutting-edge technology, startups, and creative spaces in Ilorin",
       locations: ["Co-Working Spaces", "Startup Showcases", "Tech Workshops", "Networking Events", "AI & Robotics Demos"],
       image: "https://miro.medium.com/v2/resize:fit:1400/1*qKGmxa8aGXgEbnjytY3Shg.jpeg"
     },
     {
-      icon: <MapPinIcon className="w-8 h-8" />,
+      icon: <MapPin className="w-8 h-8" />,
       title: "Ilorin Flower Garden",
       description: "Enjoy a peaceful escape surrounded by colorful blooms and landscaped gardens",
       locations: ["Rose Garden", "Botanical Walks", "Picnic Spots", "Photography Corners", "Butterfly Pavilion"],
       image: "https://images.mindtrip.ai/attractions/454a/9034/4e13/6562/602e/6332/2ffc/094c"
     },
     {
-      icon: <CameraIcon className="w-8 h-8" />,
+      icon: <Wine className="w-8 h-8" />,
       title: "Dada Pottery",
       description: "Africa's largest women pottery collective showcasing creativity and tradition",
       locations: ["Meet innovative women artisans", "Pottery Demonstrations", "Handmade Souvenirs", "Workshops & Classes"],
       image: "https://static.wixstatic.com/media/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg"
     },
     {
-      icon: <TruckIcon className="w-8 h-8" />,
+      icon: <Car className="w-8 h-8" />,
       title: "Shopping & Markets",
       description: "Explore vibrant local markets and shopping centers",
       locations: ["Emirate Mall", "Mandate Market", "Shoprite Ilorin", "Local Crafts"],
@@ -76,7 +71,7 @@ const Tourism: React.FC = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <CameraIcon className="w-12 h-12 text-gold mx-auto mb-6" />
+          <Camera className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Explore Ilorin & Kwara State
           </h2>

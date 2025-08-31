@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartIcon } from '@heroicons/react/24/outline';
+import { Heart } from 'lucide-react';
 import updatedLogo from '../assets/updated-logop.png';
 
 const Hero: React.FC = () => {
@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <HeartIcon className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse" />
+          <Heart className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse" />
         </div>
         
         {/* Couples Logo */}

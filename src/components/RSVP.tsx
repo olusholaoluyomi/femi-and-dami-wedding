@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  PaperAirplaneIcon, 
-  UsersIcon, 
-  XMarkIcon, 
-  CheckCircleIcon 
-} from '@heroicons/react/24/outline';
+import { Send, Users } from 'lucide-react';
 
 const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,46 +8,14 @@ const RSVP: React.FC = () => {
     guests: '1',
     attendance: '',
     dietary: '',
-    message: '',
-    needsAccommodation: '',
-    phone: ''
+    message: ''
   });
-
-  const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
-
-  const showToast = (message: string) => {
-    setToast({message, show: true});
-    setTimeout(() => setToast({message: '', show: false}), 5000);
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Handle form submission
     console.log('RSVP submitted:', formData);
-    
-    if (formData.needsAccommodation === 'yes') {
-      // Store data in localStorage
-      localStorage.setItem('rsvpData', JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        guests: formData.guests,
-        phone: formData.phone
-      }));
-      
-      // Scroll to hotels section
-      setTimeout(() => {
-        const hotelsSection = document.getElementById('hotels');
-        if (hotelsSection) {
-          hotelsSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }, 500);
-      
-      showToast('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.');
-    } else {
-      showToast('Thank you for your RSVP! We can\'t wait to celebrate with you.');
-    }
+    alert('Thank you for your RSVP! We can\'t wait to celebrate with you.');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -68,23 +31,9 @@ const RSVP: React.FC = () => {
       <div className="absolute top-20 right-10 w-40 h-40 golden-swirl-2"></div>
       <div className="absolute bottom-10 left-5 w-28 h-28 golden-swirl"></div>
       
-      {/* Toast Notification */}
-      {toast.show && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 border-l-4 border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-lg max-w-md w-full mx-4 flex items-center gap-3">
-          <CheckCircleIcon className="w-5 h-5" />
-          <span className="flex-1 font-sans">{toast.message}</span>
-          <button
-            onClick={() => setToast({message: '', show: false})}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <XMarkIcon className="w-4 h-4" />
-          </button>
-        </div>
-      )}
-      
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <UsersIcon className="w-12 h-12 text-gold mx-auto mb-6" />
+          <Users className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             RSVP
           </h2>
@@ -132,22 +81,6 @@ const RSVP: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block font-sans text-mocha font-medium mb-2">
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gold/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-ivory/50"
-                placeholder="+234 810 868 0111"
-              />
-            </div>
-
-            <div>
               <label htmlFor="guests" className="block font-sans text-mocha font-medium mb-2">
                 Number of Guests
               </label>
@@ -180,25 +113,6 @@ const RSVP: React.FC = () => {
                 <option value="">Please select</option>
                 <option value="yes">Yes, I'll be there!</option>
                 <option value="no">Sorry, can't make it</option>
-              </select>
-            </div>
-
-            {/* Added Accommodation Question */}
-            <div>
-              <label htmlFor="needsAccommodation" className="block font-sans text-mocha font-medium mb-2">
-                Need Accommodation? *
-              </label>
-              <select
-                id="needsAccommodation"
-                name="needsAccommodation"
-                required
-                value={formData.needsAccommodation}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gold/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold bg-ivory/50"
-              >
-                <option value="">Please select</option>
-                <option value="yes">Yes, I need a hotel room</option>
-                <option value="no">No, I have accommodation</option>
               </select>
             </div>
           </div>
@@ -238,7 +152,7 @@ const RSVP: React.FC = () => {
               type="submit"
               className="bg-gold hover:bg-gold/90 text-white px-12 py-4 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
             >
-              <PaperAirplaneIcon className="w-5 h-5" />
+              <Send className="w-5 h-5" />
               Send RSVP
             </button>
           </div>
