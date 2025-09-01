@@ -242,7 +242,13 @@ const GiftRegistry: React.FC = () => {
                 <h4 className="font-sans font-semibold text-mocha mb-2">Alternative Options</h4>
                 <p className="font-sans text-sm text-dark-soft mb-4">
                   If you prefer to give a monetary gift, we've also set up options for cash gifts 
-                  that can be transferred directly to our account.
+                  that can be transferred directly to our account. 
+                  <a 
+                    href="#cash-gifts" 
+                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
+                  >
+                    Click Here to continue
+                  </a>
                 </p>
               </div>
             </div>
