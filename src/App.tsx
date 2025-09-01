@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import EventDetails from './components/EventDetails';
 import Gallery from './components/Gallery';
 import RSVP from './components/RSVP';
+import GiftRegistry from './components/GiftRegistry';
 import Contacts from './components/Contacts';
 import Hotels from './components/Hotels';
 import Tourism from './components/Tourism';
@@ -15,6 +16,7 @@ function App() {
       <EventDetails />
       <Gallery />
       <RSVP />
+      <GiftRegistry />
       <Contacts />
       <Hotels />
       <Tourism />
