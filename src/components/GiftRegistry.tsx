@@ -237,7 +237,7 @@ const GiftRegistry: React.FC = () => {
                   </h3>
                   {item.rating && (
                     <div className="flex items-center gap-1 ml-2">
-                      {[...Array(item.rating)].map((_, i) => (
+                      {[...Array(Math.floor(item.rating))].map((_, i) => (
                         <Star key={i} className="w-3 h-3 text-gold fill-current" />
                       ))}
                     </div>
