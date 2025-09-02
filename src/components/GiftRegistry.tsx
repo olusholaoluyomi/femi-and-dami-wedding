@@ -19,103 +19,136 @@ const GiftRegistry: React.FC = () => {
   // Sample gift items - you can replace these with your actual Amazon links
   const giftItems: GiftItem[] = [
     {
-      id: '1', 
-      name: 'Ninja Foodi Personal Blender',
-      description: 'Powerful personal blender perfect for smoothies, protein shakes, and frozen drinks',
-      price: '£79.99',
-      image: 'https://images.pexels.com/photos/5946080/pexels-photo-5946080.jpeg',
+      id: '1',
+      name: 'Cold Press Juicer Machines, Fretta Slow Masticating Juicer',
+      description: 'Slow masticating juicer with 108mm & 1.0L hopper for whole fruits and vegetables, 200W self feeding high yield juice extractor',
+      price: '£77.99',
+      image: 'https://images.pexels.com/photos/1002543/pexels-photo-1002543.jpeg',
       amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
       category: 'kitchen',
-      rating: 5,
-      features: ['Personal Size', 'Powerful Motor', 'BPA-Free', 'Easy Clean']
+      rating: 4.5,
+      features: ['108mm Wide Hopper', '1.0L Capacity', 'PCTG BPA-Free', 'Self Feeding', 'High Yield']
     },
     {
       id: '2',
-      name: 'Egyptian Cotton Bedding Set',
-      description: 'Luxurious 400 thread count Egyptian cotton bedding set',
-      price: '£89.99',
-      image: 'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'bedroom',
-      rating: 5,
-      features: ['400 Thread Count', 'Egyptian Cotton', 'Machine Washable', 'Hypoallergenic']
-    },
-    {
-      id: '3',
-      name: 'Sage Barista Express Coffee Machine',
-      description: 'Professional espresso machine with built-in grinder',
-      price: '£499.99',
-      image: 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'kitchen',
-      rating: 5,
-      features: ['Built-in Grinder', 'Steam Wand', 'Pressure Gauge', 'Stainless Steel']
-    },
-    {
-      id: '4',
-      name: 'Amazon Echo Show 8',
-      description: 'Smart display with Alexa for video calls and smart home control',
-      price: '£119.99',
-      image: 'https://images.pexels.com/photos/4790268/pexels-photo-4790268.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'electronics',
-      rating: 5,
-      features: ['8" HD Display', 'Voice Control', 'Video Calling', 'Smart Home Hub']
-    },
-    {
-      id: '5',
-      name: 'Denby Pottery Dinnerware Set',
-      description: 'Handcrafted stoneware dinnerware set, perfect for entertaining',
-      price: '£159.99',
-      image: 'https://images.pexels.com/photos/1395964/pexels-photo-1395964.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'kitchen',
-      rating: 5,
-      features: ['16-Piece Set', 'Handcrafted', 'Dishwasher Safe', 'Oven Safe']
-    },
-    {
-      id: '6',
-      name: 'Luxury Throw Cushions',
-      description: 'Velvet throw cushions with gold embroidered details',
-      price: '£45.99',
-      image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'home-decor',
-      rating: 5,
-      features: ['Set of 2', 'Velvet Fabric', 'Gold Embroidery', 'Hidden Zipper']
-    },
-    {
-      id: '7',
-      name: 'Le Creuset Cast Iron Casserole',
-      description: 'Premium enameled cast iron casserole dish for slow cooking',
-      price: '£249.99',
-      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
-      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'kitchen',
-      rating: 5,
-      features: ['Cast Iron', 'Enamel Coating', 'Oven Safe', 'Lifetime Warranty']
-    },
-    {
-      id: '8',
-      name: 'Dyson V15 Detect Vacuum',
-      description: 'Advanced cordless vacuum with laser dust detection',
-      price: '£599.99',
+      name: 'VYTRONIX 3-in-1 Cordless Vacuum Cleaner',
+      description: '22.2V powerful & lightweight cordless vacuum with 40 minute run time, great for pet hair, carpets & hard floors',
+      price: '£64.99',
       image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg',
       amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
       category: 'electronics',
-      rating: 5,
-      features: ['Cordless', 'Laser Detection', '60min Runtime', 'HEPA Filter']
+      rating: 4.3,
+      features: ['3-in-1 Design', '40 Min Runtime', 'Lithium-Ion Battery', 'Pet Hair Specialist', 'Lightweight']
+    },
+    {
+      id: '3',
+      name: 'HaWare Dinner Set, 12 Piece Stoneware Dinnerware',
+      description: 'Service for 4, reactive glaze dining ware with plates and bowls, chip and scratch resistant',
+      price: '£47.99',
+      image: 'https://images.pexels.com/photos/1395964/pexels-photo-1395964.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.6,
+      features: ['12-Piece Set', 'Service for 4', 'Microwave Safe', 'Dishwasher Safe', 'Cream Khaki']
+    },
+    {
+      id: '4',
+      name: 'Richmount Nebula Dinner Set for 4',
+      description: '12-piece speckled dinnerware stoneware set, scratch resistant, dishwasher & microwave safe',
+      price: '£49.95',
+      image: 'https://images.pexels.com/photos/1395964/pexels-photo-1395964.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.4,
+      features: ['12-Piece Set', 'Speckled Design', 'Scratch Resistant', 'Microwave Safe', 'Creamy with Colorful Speckles']
+    },
+    {
+      id: '5',
+      name: 'Vencier Thick Wooden Cutting Boards Set',
+      description: 'Perfect for meat carving, vegetable and bread cutting - bamboo chopping board ensemble (3pc set)',
+      price: '£12.49',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.6,
+      features: ['3-Piece Set', 'Bamboo Material', 'Thick & Durable', 'Multi-Purpose', 'Easy Clean']
+    },
+    {
+      id: '6',
+      name: 'Amazon.co.uk Gift Card',
+      description: 'Gift card for custom amount in a mini envelope - perfect for letting us choose what we need most',
+      price: 'Custom Amount',
+      image: 'https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'electronics',
+      rating: 4.8,
+      features: ['Custom Amount', 'Mini Envelope', 'Instant Delivery', 'No Expiry', 'Flexible Choice']
+    },
+    {
+      id: '7',
+      name: 'Sensio Home Multi Functional 3 in 1 Grill Maker',
+      description: 'Stylish waffle, deep fill sandwich, panini or grill maker with interchangeable non-stick plates',
+      price: 'See Options',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.1,
+      features: ['3-in-1 Function', 'Non-Stick Plates', 'Easy Clean', 'Secure Lock', 'Ready Lights']
+    },
+    {
+      id: '8',
+      name: 'BAIGELONG Hand Electric Mixer',
+      description: '300W ultra power food kitchen mixer with 5 self-control speeds + turbo boost, 5 stainless steel attachments',
+      price: '£16.99',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.1,
+      features: ['300W Power', '5 Speed Settings', 'Turbo Boost', '5 Attachments', 'Handheld Design']
     },
     {
       id: '9',
-      name: 'Luxury Towel Set',
-      description: 'Premium Egyptian cotton towel set in ivory and gold',
-      price: '£79.99',
-      image: 'https://images.pexels.com/photos/6045242/pexels-photo-6045242.jpeg',
+      name: 'Knife Set with Block, 10 Pieces',
+      description: 'Complete knife set with built-in sharpener, scissors, peeler, grater, chopping board - dishwasher safe',
+      price: '£29.99',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
       amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
-      category: 'bedroom',
-      rating: 5,
-      features: ['Egyptian Cotton', '600 GSM', 'Quick Dry', 'Set of 6']
+      category: 'kitchen',
+      rating: 4.0,
+      features: ['10-Piece Set', 'Built-in Sharpener', 'Stainless Steel', 'Dishwasher Safe', 'Complete Tools']
+    },
+    {
+      id: '10',
+      name: 'Kitchen Academy Enameled Cast Iron Cookware Set',
+      description: '7 pieces induction hob pans set & Dutch oven sets, ceramic non-stick pots and pans set, PFOA & PFOS-free',
+      price: '£139.99',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.9,
+      features: ['7-Piece Set', 'Cast Iron', 'Induction Compatible', 'Non-Stick', 'PFOA-Free']
+    },
+    {
+      id: '11',
+      name: 'Russell Hobbs Textures 2 Slice Toaster',
+      description: 'Extra wide slots, 6 browning levels, frozen, cancel & reheat function with indicator lights, removable crumb tray',
+      price: 'See Options',
+      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.3,
+      features: ['Extra Wide Slots', '6 Browning Levels', 'Frozen Function', 'Indicator Lights', '850W']
+    },
+    {
+      id: '12',
+      name: 'Ninja 3-in-1 Detect Power Blender Processor Pro',
+      description: 'Powerful 1200W blender with food processor bowl, dough blade, single serve cup - make pizza dough, blend, chop & mix',
+      price: '£222.83',
+      image: 'https://images.pexels.com/photos/5946080/pexels-photo-5946080.jpeg',
+      amazonUrl: 'https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471',
+      category: 'kitchen',
+      rating: 4.8,
+      features: ['1200W Power', '3-in-1 Function', 'Food Processor', 'Dough Blade', 'Single Serve Cup']
     }
   ];
 
