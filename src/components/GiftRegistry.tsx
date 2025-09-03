@@ -301,8 +301,8 @@ const GiftRegistry: React.FC = () => {
                 <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
                 <p className="font-sans text-sm text-dark-soft mb-4">
                   Since we're celebrating in a different city from where we live, we've created this convenient 
-                  online registry. All gifts will be shipped directly to our home address in the UK, so you don't 
-                  need to worry about transportation to the wedding venue.
+                  online registry, so you won't 
+                  need to worry about transporting your gifts to the wedding venue.
                 </p>
               </div>
               <div>
