@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
         {/* Event Date & Venue */}
         <div className="glass-effect px-8 py-4 rounded-full inline-block mb-8">
           <p className="font-sans text-lg text-mocha font-medium">
-            December 10th, 2025 • United Mission Church of Africa (UMCA) Chapel, Tanke, Ilorin, Kwara State. Nigeria.
+            December 10th, 2025 • 9:00 AM - 11:00 AM WAT.
           </p>
         </div>
         
