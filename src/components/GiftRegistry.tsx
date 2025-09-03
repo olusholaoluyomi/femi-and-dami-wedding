@@ -310,12 +310,15 @@ const GiftRegistry: React.FC = () => {
                 <p className="font-sans text-sm text-dark-soft mb-4">
                   If you prefer to give a monetary gift, we've also set up options for cash gifts 
                   that can be transferred directly to our account. 
-                  <a 
-                    href="https://revolut.me/amiria2122" 
+                  <a
+                    href="https://revolut.me/amiria2122"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
-                  >
-                    Click Here to continue
+                      >
+                    Continue with Revolut
                   </a>
+
                 </p>
               </div>
             </div>
