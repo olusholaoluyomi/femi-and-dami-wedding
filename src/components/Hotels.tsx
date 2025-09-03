@@ -17,15 +17,22 @@ const Hotels: React.FC = () => {
 
   const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
 
-  // Auto-fill from URL parameters (if coming from RSVP form)
+  // Auto-fill from URL parameters and handle expiration
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name');
     const email = urlParams.get('email');
     const guests = urlParams.get('guests');
     const phone = urlParams.get('phone');
+    const timestamp = urlParams.get('timestamp');
+    const success = urlParams.get('success');
     
-    if (name || email || guests || phone) {
+    // Check if data has expired (5 minutes = 300000ms)
+    const now = Date.now();
+    const dataAge = timestamp ? now - parseInt(timestamp) : 0;
+    const hasExpired = dataAge > 300000; // 5 minutes
+    
+    if ((name || email || guests || phone) && !hasExpired) {
       setReservationData(prev => ({
         ...prev,
         ...(name && { name }),
@@ -33,14 +40,37 @@ const Hotels: React.FC = () => {
         ...(guests && { guests }),
         ...(phone && { phone })
       }));
+      
+      // Set up auto-expiration timer for remaining time
+      const remainingTime = 300000 - dataAge;
+      if (remainingTime > 0) {
+        setTimeout(() => {
+          clearUrlData();
+          showToast('Form data has expired for security. Please re-submit your RSVP if needed.');
+        }, remainingTime);
+      }
+    } else if (hasExpired && (name || email || guests || phone)) {
+      // Data has expired, clear it
+      clearUrlData();
+      showToast('Form data has expired for security. Please re-submit your RSVP if needed.');
     }
 
-    // Also check if there's a success message to show
-    const success = urlParams.get('success');
     if (success === 'true') {
       showToast('Thank you for your RSVP! Please complete your accommodation booking below.');
     }
   }, []);
+
+  // Function to clear URL data
+  const clearUrlData = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('name');
+    url.searchParams.delete('email');
+    url.searchParams.delete('guests');
+    url.searchParams.delete('phone');
+    url.searchParams.delete('success');
+    url.searchParams.delete('timestamp');
+    window.history.replaceState({}, '', url.toString());
+  };
 
   const showToast = (message: string) => {
     setToast({message, show: true});
@@ -105,15 +135,18 @@ const Hotels: React.FC = () => {
     // Show success toast instead of alert
     showToast('Reservation request submitted! The hotel will contact you to confirm.');
     
+    // Clear URL data after successful submission
+    clearUrlData();
+    
     // Clear form after submission (but keep user info from RSVP)
     setReservationData(prev => ({
       hotel: '',
       checkin: '',
       checkout: '',
-      guests: prev.guests,
-      name: prev.name,
-      email: prev.email,
-      phone: prev.phone
+      guests: '2',
+      name: '',
+      email: '',
+      phone: ''
     }));
   };
 
