@@ -70,40 +70,6 @@ const EventDetails: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Reception Venue Block */}
-          <div className="text-center">
-            <div className="glass-effect p-8 rounded-3xl max-w-3xl mx-auto">
-              <h3 className="font-serif text-3xl font-semibold text-mocha mb-4">
-                Reception Venue
-              </h3>
-              <p className="font-sans text-lg text-dark-soft mb-2">
-                Venue will be disclosed shortly
-              </p>
-
-              {/* Time Info */}
-              <div className="flex items-center justify-center gap-2 text-dark-soft mb-2">
-                <Clock className="w-5 h-5 text-gold" />
-                <span className="font-sans">12:00 PM till Mama calls</span>
-              </div>
-
-              {/* Colors */}
-              <div className="mt-6 p-4 bg-gold/10 rounded-xl">
-                <p className="font-sans text-sm text-mocha font-medium mb-2">
-                  Wedding Colors
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-ivory border border-gold/30 rounded-full"></div>
-                  <div className="w-4 h-4 bg-beige rounded-full"></div>
-                  <div className="w-4 h-4 bg-gold rounded-full"></div>
-                  <div className="w-4 h-4 bg-amber-100 rounded-full"></div>
-                  <span className="font-sans text-xs text-dark-soft ml-2">
-                    Ivory, Beige, Gold & Mousse
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
