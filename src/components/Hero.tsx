@@ -35,10 +35,7 @@ const Hero: React.FC = () => {
 
         {/* Hashtag Meaning */}
         <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> is a Hebrew word from 
-          the Bible that describes God's faithful, covenantal love — the kind that keeps promises 
-          and never gives up. It’s our reminder that our marriage is built on that same kind of 
-          loyal, action-oriented love.
+          Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> comes from the Hebrew word hesed, a powerful term from the Bible that describes God’s faithful, covenantal love, a love that is steadfast, loyal, merciful, and full of grace. It is the kind of love that keeps its promises, endures challenges, and never gives up. By choosing this as our hashtag, we want to remind ourselves and everyone celebrating with us that our marriage is built on this same foundation of enduring, action-oriented love: a love that is not just spoken but lived out daily in commitment, kindness, and faithfulness.
         </p>
         
         {/* Event Date & Venue */}
