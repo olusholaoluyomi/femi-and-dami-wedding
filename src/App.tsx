@@ -3,9 +3,9 @@ import Hero from './components/Hero';
 import EventDetails from './components/EventDetails';
 import Gallery from './components/Gallery';
 import RSVP from './components/RSVP';
+import Hotels from './components/Hotels';
 import GiftRegistry from './components/GiftRegistry';
 import Contacts from './components/Contacts';
-import Hotels from './components/Hotels';
 import Tourism from './components/Tourism';
 import './styles/globals.css';
 
@@ -16,9 +16,9 @@ function App() {
       <EventDetails />
       <Gallery />
       <RSVP />
+      <Hotels />
       <GiftRegistry />
       <Contacts />
-      <Hotels />
       <Tourism />
     </div>
   );

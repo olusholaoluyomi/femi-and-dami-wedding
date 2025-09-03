@@ -71,6 +71,30 @@ const Hotels: React.FC = () => {
       price: "₦33,000-100,000/night", 
       amenities: ["Restaurant & Bar", "Free Breakfast (continental/Western)", "Free Wi-Fi", "Free Parking (self & valet)", "24-hour Front Desk", "Air-Conditioning", "Daily Housekeeping & Laundry", "Flat-Screen TV & Satellite Channels", "In-Room Refrigerator & Kettle", "Workspace (Desk, Charging Outlets)", "Safe", "Jacuzzi (in select rooms)", "Conference/Event Facilities", "Security Personnel", "Smoke-Free Property"],
       description: "Comfortable accommodation with modern amenities"
+    },
+    {
+      name: "Princess Luxury Hotel",
+      distance: "15 minutes from venue",
+      rating: 4,
+      price: "₦25,000-80,000/night",
+      amenities: ["Free Wi-Fi", "Restaurant", "Bar", "Air-conditioned", "Room service", "24-hour front desk", "Free parking", "Laundry service", "Conference facilities", "Security", "Flat-screen TV", "Private bathroom"],
+      description: "Elegant hotel offering luxury accommodation with modern facilities"
+    },
+    {
+      name: "Agawoods Hotel",
+      distance: "12 minutes from venue",
+      rating: 4,
+      price: "₦20,000-65,000/night",
+      amenities: ["Free Wi-Fi", "Restaurant", "Bar", "Air-conditioned", "Free parking", "24-hour front desk", "Room service", "Laundry service", "Conference room", "Security", "Flat-screen TV", "Private bathroom", "Garden view"],
+      description: "Comfortable hotel with serene environment and quality service"
+    },
+    {
+      name: "E-Phoenix Hotel Annex",
+      distance: "8 minutes from venue",
+      rating: 4,
+      price: "₦18,000-55,000/night",
+      amenities: ["Free Wi-Fi", "Restaurant", "Air-conditioned", "Free parking", "24-hour front desk", "Room service", "Laundry service", "Security", "Flat-screen TV", "Private bathroom", "Business center", "Event hall"],
+      description: "Modern hotel annex with convenient location and essential amenities"
     }
   ];
 
