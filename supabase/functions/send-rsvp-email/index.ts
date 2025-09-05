@@ -1,5 +1,3 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -29,10 +27,16 @@ Deno.serve(async (req: Request) => {
 
     const { email, name, uniqueCode, type }: EmailRequest = await req.json();
 
-    // Initialize Supabase client
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // Get Resend API key from environment
+    const resendApiKey = Deno.env.get('RESEND_API_KEY');
+    
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY not found in environment variables');
+      return new Response(JSON.stringify({ error: 'Email service not configured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     // Determine email content based on type
     const isRSVP = type === 'rsvp';
@@ -137,24 +141,34 @@ Deno.serve(async (req: Request) => {
       </div>
     `;
 
-    // Send email using Supabase
-    const { error } = await supabase.auth.admin.inviteUserByEmail(email, {
-      data: {
-        subject,
+    // Send email using Resend
+    const emailResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Dami & Femi Wedding <noreply@thehesed.com>',
+        to: [email],
+        subject: subject,
         html: emailContent,
-        custom_email: true
-      }
+      }),
     });
 
-    if (error) {
-      console.error('Email error:', error);
+    if (!emailResponse.ok) {
+      const errorText = await emailResponse.text();
+      console.error('Resend API error:', errorText);
       return new Response(JSON.stringify({ error: 'Failed to send email' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    return new Response(JSON.stringify({ success: true }), {
+    const emailResult = await emailResponse.json();
+    console.log('Email sent successfully:', emailResult);
+
+    return new Response(JSON.stringify({ success: true, emailId: emailResult.id }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 

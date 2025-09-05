@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Users, X, CheckCircle } from 'lucide-react';
+import { FormService } from '../services/formService';
+import { useToast } from '../context/ToastContext';
 
 const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,43 +15,74 @@ const RSVP: React.FC = () => {
     phone: ''
   });
 
-  const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { addToast } = useToast();
 
-  const showToast = (message: string) => {
-    setToast({message, show: true});
-    setTimeout(() => setToast({message: '', show: false}), 5000);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('RSVP submitted:', formData);
     
-    if (formData.needsAccommodation === 'yes') {
-      // Scroll to hotels section after a brief delay
-      setTimeout(() => {
-        const hotelsSection = document.getElementById('hotels');
-        if (hotelsSection) {
-          // Create URL with form data as parameters
-          const params = new URLSearchParams();
-          params.set('success', 'true');
-          if (formData.name) params.set('name', formData.name);
-          if (formData.email) params.set('email', formData.email);
-          if (formData.guests) params.set('guests', formData.guests);
-          if (formData.phone) params.set('phone', formData.phone);
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const result = await FormService.submitRSVP({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        guests: parseInt(formData.guests),
+        attendance: formData.attendance,
+        dietary: formData.dietary,
+        message: formData.message,
+        needs_accommodation: formData.needsAccommodation
+      });
+
+      if (result.success) {
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          guests: '1',
+          attendance: '',
+          dietary: '',
+          message: '',
+          needsAccommodation: '',
+          phone: ''
+        });
+
+        if (formData.needsAccommodation === 'yes') {
+          // Add timestamp to URL parameters for security
+          const timestamp = Date.now().toString();
           
-          // Update URL without reloading the page
-          window.history.replaceState({}, '', `${window.location.pathname}?${params}#hotels`);
+          setTimeout(() => {
+            const hotelsSection = document.getElementById('hotels');
+            if (hotelsSection) {
+              const params = new URLSearchParams();
+              params.set('success', 'true');
+              params.set('name', formData.name);
+              params.set('email', formData.email);
+              params.set('guests', formData.guests);
+              params.set('phone', formData.phone);
+              params.set('timestamp', timestamp);
+              
+              window.history.replaceState({}, '', `${window.location.pathname}?${params}#hotels`);
+              
+              hotelsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }, 500);
           
-          hotelsSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
+          addToast(`Thank you for your RSVP! Your entry code is ${result.uniqueCode}. Check your email for details. We've scrolled you to the accommodation section.`, 'success');
+        } else {
+          addToast(`Thank you for your RSVP! Your entry code is ${result.uniqueCode}. Check your email for confirmation details.`, 'success');
         }
-      }, 500);
-      
-      showToast('Thank you for your RSVP! We\'ve scrolled you to the accommodation section to book your stay.');
-    } else {
-      showToast('Thank you for your RSVP! We can\'t wait to celebrate with you.');
+      }
+    } catch (error) {
+      console.error('RSVP submission error:', error);
+      addToast('Sorry, there was an error submitting your RSVP. Please try again.', 'error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -65,20 +98,6 @@ const RSVP: React.FC = () => {
       {/* Background Decorations */}
       <div className="absolute top-20 right-10 w-40 h-40 golden-swirl-2"></div>
       <div className="absolute bottom-10 left-5 w-28 h-28 golden-swirl"></div>
-      
-      {/* Toast Notification */}
-      {toast.show && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 border-l-4 border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-lg max-w-md w-full mx-4 flex items-center gap-3">
-          <CheckCircle className="w-5 h-5" />
-          <span className="flex-1 font-sans">{toast.message}</span>
-          <button
-            onClick={() => setToast({message: '', show: false})}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      )}
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -234,10 +253,15 @@ const RSVP: React.FC = () => {
           <div className="mt-8 text-center">
             <button
               type="submit"
-              className="bg-gold hover:bg-gold/90 text-white px-12 py-4 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
+              disabled={isSubmitting}
+              className={`px-12 py-4 rounded-full font-sans font-medium transition-all duration-300 shadow-lg inline-flex items-center gap-2 ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed text-white' 
+                  : 'bg-gold hover:bg-gold/90 text-white transform hover:scale-105'
+              }`}
             >
               <Send className="w-5 h-5" />
-              Send RSVP
+              {isSubmitting ? 'Submitting...' : 'Send RSVP'}
             </button>
           </div>
         </form>

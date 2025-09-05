@@ -33,10 +33,11 @@ Deno.serve(async (req: Request) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // Get Google Sheets credentials from environment
-    const sheetsApiKey = Deno.env.get('GOOGLE_SHEETS_API_KEY');
+    const googlePrivateKey = Deno.env.get('GOOGLE_PRIVATE_KEY');
+    const googleClientEmail = Deno.env.get('GOOGLE_CLIENT_EMAIL');
     const spreadsheetId = Deno.env.get('GOOGLE_SPREADSHEET_ID');
 
-    if (!sheetsApiKey || !spreadsheetId) {
+    if (!googlePrivateKey || !googleClientEmail || !spreadsheetId) {
       console.error('Missing Google Sheets configuration');
       return new Response(JSON.stringify({ error: 'Google Sheets not configured' }), {
         status: 500,
@@ -53,11 +54,81 @@ Deno.serve(async (req: Request) => {
       .single();
 
     if (fetchError || !record) {
+      console.error('Record fetch error:', fetchError);
       return new Response(JSON.stringify({ error: 'Record not found' }), {
         status: 404,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
+
+    // Create JWT for Google Sheets API
+    const now = Math.floor(Date.now() / 1000);
+    const jwtHeader = {
+      alg: 'RS256',
+      typ: 'JWT'
+    };
+
+    const jwtPayload = {
+      iss: googleClientEmail,
+      scope: 'https://www.googleapis.com/auth/spreadsheets',
+      aud: 'https://oauth2.googleapis.com/token',
+      exp: now + 3600,
+      iat: now
+    };
+
+    // Encode JWT header and payload
+    const encoder = new TextEncoder();
+    const headerB64 = btoa(JSON.stringify(jwtHeader)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+    const payloadB64 = btoa(JSON.stringify(jwtPayload)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+    // Create signature
+    const signatureInput = `${headerB64}.${payloadB64}`;
+    const privateKeyPem = googlePrivateKey.replace(/\\n/g, '\n');
+    
+    // Import the private key
+    const privateKey = await crypto.subtle.importKey(
+      'pkcs8',
+      new TextEncoder().encode(privateKeyPem.replace('-----BEGIN PRIVATE KEY-----', '').replace('-----END PRIVATE KEY-----', '').replace(/\s/g, '')),
+      {
+        name: 'RSASSA-PKCS1-v1_5',
+        hash: 'SHA-256',
+      },
+      false,
+      ['sign']
+    );
+
+    // Sign the JWT
+    const signature = await crypto.subtle.sign(
+      'RSASSA-PKCS1-v1_5',
+      privateKey,
+      encoder.encode(signatureInput)
+    );
+
+    const signatureB64 = btoa(String.fromCharCode(...new Uint8Array(signature)))
+      .replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+    const jwt = `${headerB64}.${payloadB64}.${signatureB64}`;
+
+    // Get access token
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
+    });
+
+    if (!tokenResponse.ok) {
+      const errorText = await tokenResponse.text();
+      console.error('Token request failed:', errorText);
+      return new Response(JSON.stringify({ error: 'Failed to get access token' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const tokenData = await tokenResponse.json();
+    const accessToken = tokenData.access_token;
 
     // Prepare data for Google Sheets
     let sheetName: string;
@@ -93,11 +164,12 @@ Deno.serve(async (req: Request) => {
     }
 
     // Add to Google Sheets
-    const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}:append?valueInputOption=RAW&key=${sheetsApiKey}`;
+    const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}:append?valueInputOption=RAW`;
     
     const sheetsResponse = await fetch(sheetsUrl, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

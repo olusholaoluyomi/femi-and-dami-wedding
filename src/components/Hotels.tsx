@@ -3,6 +3,8 @@ import {
   Wifi, Utensils, Car, Coffee, Bath, Dumbbell, Music, Shield, Sun, Snowflake, Tv,
   Users, Key, Wine, ConciergeBell, Leaf, Star, Briefcase, Hotel, MapPin, X, CheckCircle
 } from 'lucide-react';
+import { FormService } from '../services/formService';
+import { useToast } from '../context/ToastContext';
 
 const Hotels: React.FC = () => {
   const [reservationData, setReservationData] = useState({
@@ -15,7 +17,8 @@ const Hotels: React.FC = () => {
     phone: ''
   });
 
-  const [toast, setToast] = useState<{message: string; show: boolean}>({message: '', show: false});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { addToast } = useToast();
 
   // Auto-fill from URL parameters and handle expiration
   useEffect(() => {
@@ -46,17 +49,17 @@ const Hotels: React.FC = () => {
       if (remainingTime > 0) {
         setTimeout(() => {
           clearUrlData();
-          showToast('Form data has expired for security. Please re-submit your RSVP if needed.');
+          addToast('Form data has expired for security. Please re-submit your RSVP if needed.', 'info');
         }, remainingTime);
       }
     } else if (hasExpired && (name || email || guests || phone)) {
       // Data has expired, clear it
       clearUrlData();
-      showToast('Form data has expired for security. Please re-submit your RSVP if needed.');
+      addToast('Form data has expired for security. Please re-submit your RSVP if needed.', 'info');
     }
 
     if (success === 'true') {
-      showToast('Thank you for your RSVP! Please complete your accommodation booking below.');
+      addToast('Thank you for your RSVP! Please complete your accommodation booking below.', 'info');
     }
   }, []);
 
@@ -70,11 +73,6 @@ const Hotels: React.FC = () => {
     url.searchParams.delete('success');
     url.searchParams.delete('timestamp');
     window.history.replaceState({}, '', url.toString());
-  };
-
-  const showToast = (message: string) => {
-    setToast({message, show: true});
-    setTimeout(() => setToast({message: '', show: false}), 5000);
   };
 
   const hotels = [
@@ -128,26 +126,46 @@ const Hotels: React.FC = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Hotel reservation:', reservationData);
-    
-    // Show success toast instead of alert
-    showToast('Reservation request submitted! The hotel will contact you to confirm.');
-    
-    // Clear URL data after successful submission
-    clearUrlData();
-    
-    // Clear form after submission (but keep user info from RSVP)
-    setReservationData(prev => ({
-      hotel: '',
-      checkin: '',
-      checkout: '',
-      guests: '2',
-      name: '',
-      email: '',
-      phone: ''
-    }));
+
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const result = await FormService.submitHotelReservation({
+        hotel: reservationData.hotel,
+        checkin: reservationData.checkin,
+        checkout: reservationData.checkout,
+        guests: parseInt(reservationData.guests),
+        name: reservationData.name,
+        email: reservationData.email,
+        phone: reservationData.phone
+      });
+
+      if (result.success) {
+        // Clear form
+        setReservationData({
+          hotel: '',
+          checkin: '',
+          checkout: '',
+          guests: '2',
+          name: '',
+          email: '',
+          phone: ''
+        });
+
+        // Clear URL data
+        clearUrlData();
+
+        addToast(`Hotel reservation submitted! Your reservation code is ${result.uniqueCode}. Check your email for confirmation.`, 'success');
+      }
+    } catch (error) {
+      console.error('Hotel reservation error:', error);
+      addToast('Sorry, there was an error submitting your reservation. Please try again.', 'error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -234,20 +252,6 @@ const Hotels: React.FC = () => {
       {/* Background Decorations */}
       <div className="absolute top-32 right-5 w-36 h-36 golden-swirl-2"></div>
       <div className="absolute bottom-20 left-10 w-28 h-28 golden-swirl"></div>
-      
-      {/* Toast Notification */}
-      {toast.show && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 border-l-4 border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-lg max-w-md w-full mx-4 flex items-center gap-3">
-          <CheckCircle className="w-5 h-5" />
-          <span className="flex-1 font-sans">{toast.message}</span>
-          <button
-            onClick={() => setToast({message: '', show: false})}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      )}
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -461,9 +465,14 @@ const Hotels: React.FC = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-gold hover:bg-gold/90 text-white px-12 py-4 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+                disabled={isSubmitting}
+                className={`px-12 py-4 rounded-full font-sans font-medium transition-all duration-300 shadow-lg ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed text-white' 
+                    : 'bg-gold hover:bg-gold/90 text-white transform hover:scale-105'
+                }`}
               >
-                Request Reservation
+                {isSubmitting ? 'Submitting...' : 'Request Reservation'}
               </button>
             </div>
           </form>
