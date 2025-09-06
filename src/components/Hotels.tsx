@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  WifiIcon, BuildingOfficeIcon, CarIcon, CoffeeIcon, StarIcon, 
+  WifiIcon, BuildingOfficeIcon, TruckIcon, CoffeeIcon, StarIcon, 
   UsersIcon, KeyIcon, MapPinIcon, BuildingStorefrontIcon
 } from '@heroicons/react/24/outline';
 import { 
@@ -197,9 +197,9 @@ const Hotels: React.FC = () => {
       case "Pool bar": return <BuildingStorefrontIcon className="w-4 h-4" />;
 
       // Parking & Transport
-      case "Free parking": return <CarIcon className="w-4 h-4" />;
-      case "Free on-site private parking": return <CarIcon className="w-4 h-4" />;
-      case "Car hire": return <CarIcon className="w-4 h-4" />;
+      case "Free parking": return <TruckIcon className="w-4 h-4" />;
+      case "Free on-site private parking": return <TruckIcon className="w-4 h-4" />;
+      case "Car hire": return <TruckIcon className="w-4 h-4" />;
 
       // Wellness & Relaxation
       case "Spa facilities": return <BuildingOfficeIcon className="w-4 h-4" />;
