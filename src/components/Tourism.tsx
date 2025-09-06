@@ -1,5 +1,5 @@
 import React from 'react';
-import { CameraIcon, BuildingStorefrontIcon, MapPinIcon, CarIcon } from '@heroicons/react/24/outline';
+import { CameraIcon, BuildingStorefrontIcon, MapPinIcon, TruckIcon } from '@heroicons/react/24/outline';
 
 const Tourism: React.FC = () => {
   const attractions = [
@@ -39,7 +39,7 @@ const Tourism: React.FC = () => {
       image: "https://static.wixstatic.com/media/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b98b0a_27083f1c88e24701ad4c7a0c247cc639~mv2.jpg"
     },
     {
-      icon: <CarIcon className="w-8 h-8" />,
+      icon: <TruckIcon className="w-8 h-8" />, 
       title: "Shopping & Markets",
       description: "Explore vibrant local markets and shopping centers",
       locations: ["Emirate Mall", "Mandate Market", "Shoprite Ilorin", "Local Crafts"],
