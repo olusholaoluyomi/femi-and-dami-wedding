@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  WifiIcon, BuildingOfficeIcon, TruckIcon, CoffeeIcon, StarIcon, 
+  WifiIcon, BuildingOfficeIcon, TruckIcon, MugSaucerIconIcon, StarIcon, 
   UsersIcon, KeyIcon, MapPinIcon, BuildingStorefrontIcon
 } from '@heroicons/react/24/outline';
 import { 
@@ -185,10 +185,10 @@ const Hotels: React.FC = () => {
       case "Wifi": return <WifiIcon className="w-4 h-4" />;
 
       // Food & Drink
-      case "Free breakfast": return <CoffeeIcon className="w-4 h-4" />;
-      case "Breakfast": return <CoffeeIcon className="w-4 h-4" />;
-      case "Breakfast in the room": return <CoffeeIcon className="w-4 h-4" />;
-      case "Child-friendly buffet": return <CoffeeIcon className="w-4 h-4" />;
+      case "Free breakfast": return <MugSaucerIconIcon className="w-4 h-4" />;
+      case "Breakfast": return <MugSaucerIconIcon className="w-4 h-4" />;
+      case "Breakfast in the room": return <MugSaucerIconIcon className="w-4 h-4" />;
+      case "Child-friendly buffet": return <MugSaucerIconIcon className="w-4 h-4" />;
       case "Restaurant": return <BuildingStorefrontIcon className="w-4 h-4" />;
       case "Brunch": return <BuildingStorefrontIcon className="w-4 h-4" />;
       case "Lunch": return <BuildingStorefrontIcon className="w-4 h-4" />;
