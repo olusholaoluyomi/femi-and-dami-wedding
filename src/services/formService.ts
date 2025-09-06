@@ -3,16 +3,21 @@ import type { RSVPSubmission, HotelReservation } from '../lib/supabase';
 
 export class FormService {
   private static async callEdgeFunction(functionName: string, payload: any) {
-    const { data, error } = await supabase.functions.invoke(functionName, {
-      body: payload
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke(functionName, {
+        body: payload
+      });
 
-    if (error) {
-      console.error(`Edge function ${functionName} error:`, error);
-      throw new Error(`Failed to call ${functionName}`);
+      if (error) {
+        console.error(`Edge function ${functionName} error:`, error);
+        throw new Error(`Failed to call ${functionName}: ${error.message}`);
+      }
+
+      return data;
+    } catch (error) {
+      console.error(`Edge function ${functionName} network error:`, error);
+      throw new Error(`Network error calling ${functionName}: ${error.message}`);
     }
-
-    return data;
   }
 
   static async submitRSVP(formData: Omit<RSVPSubmission, 'id' | 'unique_code' | 'created_at' | 'synced_to_sheets'>) {
@@ -46,6 +51,7 @@ export class FormService {
           uniqueCode: rsvpData.unique_code,
           type: 'rsvp'
         });
+        console.log('Email sent successfully');
       } catch (emailError) {
         console.error('Email sending failed:', emailError);
         // Don't throw here - RSVP is saved, email failure shouldn't block the process
@@ -57,6 +63,7 @@ export class FormService {
           type: 'rsvp',
           recordId: rsvpData.id
         });
+        console.log('Google Sheets sync successful');
       } catch (syncError) {
         console.error('Google Sheets sync failed:', syncError);
         // Don't throw here - RSVP is saved, sync failure shouldn't block the process
@@ -104,6 +111,7 @@ export class FormService {
           uniqueCode: hotelData.unique_code,
           type: 'hotel'
         });
+        console.log('Hotel email sent successfully');
       } catch (emailError) {
         console.error('Email sending failed:', emailError);
         // Don't throw here - reservation is saved, email failure shouldn't block the process
@@ -115,6 +123,7 @@ export class FormService {
           type: 'hotel',
           recordId: hotelData.id
         });
+        console.log('Hotel Google Sheets sync successful');
       } catch (syncError) {
         console.error('Google Sheets sync failed:', syncError);
         // Don't throw here - reservation is saved, sync failure shouldn't block the process

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gift, ExternalLink, Heart, ShoppingCart, Star } from 'lucide-react';
+import { GiftIcon, ArrowTopRightOnSquareIcon, HeartIcon, ShoppingCartIcon, StarIcon } from '@heroicons/react/24/outline';
 
 interface GiftItem {
   id: string;
@@ -153,11 +153,11 @@ const GiftRegistry: React.FC = () => {
   ];
 
   const categories = [
-    { id: 'all', name: 'All Gifts', icon: <Gift className="w-4 h-4" /> },
-    { id: 'kitchen', name: 'Kitchen', icon: <ShoppingCart className="w-4 h-4" /> },
-    { id: 'bedroom', name: 'Bedroom', icon: <Heart className="w-4 h-4" /> },
-    { id: 'electronics', name: 'Electronics', icon: <Star className="w-4 h-4" /> },
-    { id: 'home-decor', name: 'Home Decor', icon: <Gift className="w-4 h-4" /> }
+    { id: 'all', name: 'All Gifts', icon: <GiftIcon className="w-4 h-4" /> },
+    { id: 'kitchen', name: 'Kitchen', icon: <ShoppingCartIcon className="w-4 h-4" /> },
+    { id: 'bedroom', name: 'Bedroom', icon: <HeartIcon className="w-4 h-4" /> },
+    { id: 'electronics', name: 'Electronics', icon: <StarIcon className="w-4 h-4" /> },
+    { id: 'home-decor', name: 'Home Decor', icon: <GiftIcon className="w-4 h-4" /> }
   ];
 
   const filteredItems = selectedCategory === 'all' 
@@ -173,7 +173,7 @@ const GiftRegistry: React.FC = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <Gift className="w-12 h-12 text-gold mx-auto mb-6" />
+          <GiftIcon className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Gift Registry
           </h2>
@@ -238,7 +238,7 @@ const GiftRegistry: React.FC = () => {
                   {item.rating && (
                     <div className="flex items-center gap-1 ml-2">
                       {[...Array(Math.floor(item.rating))].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 text-gold fill-current" />
+                        <StarIcon key={i} className="w-3 h-3 text-gold fill-current" />
                       ))}
                     </div>
                   )}
@@ -273,7 +273,7 @@ const GiftRegistry: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex-1 bg-gold hover:bg-gold/90 text-white px-4 py-3 rounded-xl font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                   >
-                    <ShoppingCart className="w-4 h-4" />
+                    <ShoppingCartIcon className="w-4 h-4" />
                     Buy on Amazon
                   </a>
                   <a
@@ -282,7 +282,7 @@ const GiftRegistry: React.FC = () => {
                     rel="noopener noreferrer"
                     className="bg-transparent border-2 border-gold/30 text-gold hover:bg-gold/10 px-3 py-3 rounded-xl transition-all duration-300 flex items-center justify-center"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ArrowTopRightOnSquareIcon className="w-4 h-4" />
                   </a>
                 </div>
               </div>

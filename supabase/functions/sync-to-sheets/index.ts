@@ -76,19 +76,38 @@ Deno.serve(async (req: Request) => {
       iat: now
     };
 
-    // Encode JWT header and payload
-    const encoder = new TextEncoder();
-    const headerB64 = btoa(JSON.stringify(jwtHeader)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
-    const payloadB64 = btoa(JSON.stringify(jwtPayload)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+    // Simple base64 encode function
+    const base64UrlEncode = (str: string) => {
+      return btoa(str)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+    };
 
-    // Create signature
+    const headerB64 = base64UrlEncode(JSON.stringify(jwtHeader));
+    const payloadB64 = base64UrlEncode(JSON.stringify(jwtPayload));
+
+    // Create signature using Web Crypto API
     const signatureInput = `${headerB64}.${payloadB64}`;
     const privateKeyPem = googlePrivateKey.replace(/\\n/g, '\n');
     
+    // Clean up the private key
+    const privateKeyData = privateKeyPem
+      .replace('-----BEGIN PRIVATE KEY-----', '')
+      .replace('-----END PRIVATE KEY-----', '')
+      .replace(/\s/g, '');
+
+    // Convert base64 to ArrayBuffer
+    const binaryDerString = atob(privateKeyData);
+    const binaryDer = new Uint8Array(binaryDerString.length);
+    for (let i = 0; i < binaryDerString.length; i++) {
+      binaryDer[i] = binaryDerString.charCodeAt(i);
+    }
+
     // Import the private key
     const privateKey = await crypto.subtle.importKey(
       'pkcs8',
-      new TextEncoder().encode(privateKeyPem.replace('-----BEGIN PRIVATE KEY-----', '').replace('-----END PRIVATE KEY-----', '').replace(/\s/g, '')),
+      binaryDer,
       {
         name: 'RSASSA-PKCS1-v1_5',
         hash: 'SHA-256',
@@ -98,15 +117,14 @@ Deno.serve(async (req: Request) => {
     );
 
     // Sign the JWT
+    const encoder = new TextEncoder();
     const signature = await crypto.subtle.sign(
       'RSASSA-PKCS1-v1_5',
       privateKey,
       encoder.encode(signatureInput)
     );
 
-    const signatureB64 = btoa(String.fromCharCode(...new Uint8Array(signature)))
-      .replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
-
+    const signatureB64 = base64UrlEncode(String.fromCharCode(...new Uint8Array(signature)));
     const jwt = `${headerB64}.${payloadB64}.${signatureB64}`;
 
     // Get access token
@@ -137,28 +155,28 @@ Deno.serve(async (req: Request) => {
     if (type === 'rsvp') {
       sheetName = 'RSVP';
       values = [
-        record.unique_code,
-        record.name,
-        record.email,
-        record.phone,
-        record.guests.toString(),
-        record.attendance,
+        record.unique_code || '',
+        record.name || '',
+        record.email || '',
+        record.phone || '',
+        record.guests?.toString() || '1',
+        record.attendance || '',
         record.dietary || '',
         record.message || '',
-        record.needs_accommodation,
+        record.needs_accommodation || '',
         new Date(record.created_at).toLocaleString()
       ];
     } else {
       sheetName = 'Hotel Reservations';
       values = [
-        record.unique_code,
-        record.hotel,
-        record.checkin,
-        record.checkout,
-        record.guests.toString(),
-        record.name,
-        record.email,
-        record.phone,
+        record.unique_code || '',
+        record.hotel || '',
+        record.checkin || '',
+        record.checkout || '',
+        record.guests?.toString() || '2',
+        record.name || '',
+        record.email || '',
+        record.phone || '',
         new Date(record.created_at).toLocaleString()
       ];
     }
@@ -202,7 +220,10 @@ Deno.serve(async (req: Request) => {
 
   } catch (error) {
     console.error('Function error:', error);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+    return new Response(JSON.stringify({ 
+      error: 'Internal server error',
+      details: error.message 
+    }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
