@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         <div className="mb-8">
           <div className="w-80 h-80 md:w-[26rem] md:h-[26rem] lg:w-[34rem] lg:h-[34rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-4 border-gold/30 overflow-hidden">
             <img 
-              src="/home/project/src/assets/updated-logop.png"   // 🔄 Replace with your actual image path
+              src="assets/updated-logop.png"   // 🔄 Replace with your actual image path
               alt="Couples Logo"
               className="object-contain w-full h-full"
             />
