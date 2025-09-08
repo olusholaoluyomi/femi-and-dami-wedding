@@ -4,12 +4,6 @@ import coupleLogo from '/home/project/src/assets/updated-logop.png'; // ✅ Impo
 
 const Hero: React.FC = () => {
   return (
-  import React from 'react';
-import { Heart } from 'lucide-react';
-import coupleLogo from '/home/project/src/assets/updated-logop.png'; // ✅ Import your image
-
-const Hero: React.FC = () => {
-  return (
     <section className="relative min-h-screen bg-gradient-to-br from-ivory via-beige to-ivory flex items-center justify-center overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-20 left-10 w-32 h-32 golden-swirl"></div>
@@ -37,28 +31,28 @@ const Hero: React.FC = () => {
         <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
         
         {/* Hashtag Meaning */}
-        <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+        <p className="font-sans text-lg md:text-xl text-dark-soft/90 max-w-3xl mx-auto mb-10 leading-relaxed">
           Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> comes from the Hebrew word hesed, a powerful term from the Bible that describes God’s faithful, covenantal love, a love that is steadfast, loyal, merciful, and full of grace. It is the kind of love that keeps its promises, endures challenges, and never gives up. By choosing this as our hashtag, we want to remind ourselves and everyone celebrating with us that our marriage is built on this same foundation of enduring, action-oriented love: a love that is not just spoken but lived out daily in commitment, kindness, and faithfulness.
         </p>
         
         {/* Event Date & Venue */}
-        <div className="glass-effect px-8 py-4 rounded-full inline-block mb-8">
-          <p className="font-sans text-lg text-mocha font-medium">
+        <div className="glass-effect px-10 py-5 rounded-full inline-block mb-10">
+          <p className="font-sans text-xl text-mocha font-medium">
             December 10th, 2025 • 9:00 AM - 11:00 AM WAT.
           </p>
         </div>
         
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <a 
             href="#rsvp" 
-            className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full font-sans font-medium text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
           >
             RSVP Now
           </a>
           <a 
             href="#details" 
-            className="bg-transparent border-2 border-mocha text-mocha hover:bg-mocha hover:text-ivory px-8 py-3 rounded-full font-sans font-medium transition-all duration-300"
+            className="bg-transparent border-2 border-mocha text-mocha hover:bg-mocha hover:text-ivory px-10 py-4 rounded-full font-sans font-medium text-lg transition-all duration-300"
           >
             Event Details
           </a>
@@ -67,7 +61,7 @@ const Hero: React.FC = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-1 h-8 bg-gradient-to-b from-gold to-transparent rounded-full"></div>
+        <div className="w-1 h-10 bg-gradient-to-b from-gold to-transparent rounded-full"></div>
       </div>
     </section>
   );
