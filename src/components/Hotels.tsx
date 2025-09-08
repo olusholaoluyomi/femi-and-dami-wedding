@@ -86,10 +86,10 @@ const Hotels: React.FC = () => {
       description: "Check-In 1:00PM, Check-Out 12:00PM (Noon)"
     },
     {
-      name: "G-Pinnacle Signature Hotel",
-      distance: "10 minutes drive from venue", 
+      name: "Wingate Exotic Hotel",
+      distance: "5 minutes drive from venue", 
       rating: 5,
-      price: "₦130,000-550,000/night",
+      price: "₦50,000-75,000/night",
       amenities: ["Spa & wellness center", "Sauna", "Terrace & lounge", "Restaurant", "Bar & pool bar", "Outdoor swimming pool", "Free WiFi", "Fitness center", "Hot tub", "24-hour front desk", "Nightclub & live music", "Family-friendly (buffet, rooms)", "Room service & breakfast in room", "Car hire", "Beauty services", "Outdoor seating area", "Full-day security", "Free parking", "Multiple cuisines (African, Asian, International, etc.)", "Varied breakfast options (continental, buffet, vegetarian, vegan, etc.)"],
       description: "Check-In 1:30PM, Check-Out 12:00PM (Noon)"
     },
