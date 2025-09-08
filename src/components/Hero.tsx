@@ -4,6 +4,12 @@ import coupleLogo from '/home/project/src/assets/updated-logop.png'; // ✅ Impo
 
 const Hero: React.FC = () => {
   return (
+  import React from 'react';
+import { Heart } from 'lucide-react';
+import coupleLogo from '/home/project/src/assets/updated-logop.png'; // ✅ Import your image
+
+const Hero: React.FC = () => {
+  return (
     <section className="relative min-h-screen bg-gradient-to-br from-ivory via-beige to-ivory flex items-center justify-center overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-20 left-10 w-32 h-32 golden-swirl"></div>
@@ -12,14 +18,14 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 left-10 w-20 h-20 bg-mocha opacity-10 organic-shape-2"></div>
       
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <div className="mb-8">
-          <Heart className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse fill-current" />
+          <Heart className="w-16 h-16 text-gold mx-auto mb-6 animate-pulse fill-current" />
         </div>
         
         {/* Couples Logo/Image */}
-        <div className="mb-8">
-          <div className="w-80 h-80 md:w-[26rem] md:h-[26rem] lg:w-[34rem] lg:h-[34rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-4 border-gold/30 overflow-hidden">
+        <div className="mb-10">
+          <div className="w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] lg:w-[46rem] lg:h-[46rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-8 border-gold/30 overflow-hidden shadow-xl">
             <img 
               src={coupleLogo} 
               alt="Couples Logo" 
@@ -28,7 +34,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       
-        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
+        <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
         
         {/* Hashtag Meaning */}
         <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
