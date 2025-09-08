@@ -1,6 +1,5 @@
 import React from 'react';
-import { HeartIcon } from '@heroicons/react/24/solid';
-import updatedLogo from '../assets/updated-logop.png';
+import { Heart } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -14,18 +13,22 @@ const Hero: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <HeartIcon className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse" />
+          <Heart className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse fill-current" />
         </div>
         
         {/* Couples Logo */}
         <div className="mb-8">
-          <img 
-            src={updatedLogo} 
-            alt="Dami & Femi Logo" 
-            className="w-96 h-96 md:w-[30rem] md:h-[30rem] lg:w-[38rem] lg:h-[38rem] mx-auto object-contain"
-          />
-
-
+          <div className="w-96 h-96 md:w-[30rem] md:h-[30rem] lg:w-[38rem] lg:h-[38rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-4 border-gold/30">
+            <div className="text-center">
+              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-mocha mb-4">
+                D & F
+              </h1>
+              <div className="w-24 h-0.5 bg-gold mx-auto mb-4"></div>
+              <p className="font-sans text-lg md:text-xl text-gold font-medium tracking-widest">
+                #TheHesed
+              </p>
+            </div>
+          </div>
         </div>
       
         

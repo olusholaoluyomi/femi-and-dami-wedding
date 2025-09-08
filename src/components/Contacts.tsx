@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneIcon, EnvelopeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
+import { Phone, Mail, MessageCircle } from 'lucide-react';
 
 const Contacts: React.FC = () => {
   const contacts = [
@@ -25,7 +25,7 @@ const Contacts: React.FC = () => {
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <ChatBubbleLeftRightIcon className="w-12 h-12 text-gold mx-auto mb-6" />
+          <MessageCircle className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Get in Touch
           </h2>
@@ -56,7 +56,7 @@ const Contacts: React.FC = () => {
                   href={`tel:${contact.phone}`}
                   className="flex items-center justify-center gap-3 text-dark-soft hover:text-mocha transition-colors duration-300"
                 >
-                  <PhoneIcon className="w-5 h-5 text-gold" />
+                  <Phone className="w-5 h-5 text-gold" />
                   <span className="font-sans">{contact.phone}</span>
                 </a>
                 
@@ -67,7 +67,7 @@ const Contacts: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 text-dark-soft hover:text-mocha transition-colors duration-300"
                 >
-                  <ChatBubbleLeftRightIcon className="w-5 h-5 text-gold" />
+                  <MessageCircle className="w-5 h-5 text-gold" />
                   <span className="font-sans">Send WhatsApp Message</span>
                 </a>
               </div>

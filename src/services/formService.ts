@@ -2,27 +2,8 @@ import { supabase } from '../lib/supabase';
 import type { RSVPSubmission, HotelReservation } from '../lib/supabase';
 
 export class FormService {
-  private static async callEdgeFunction(functionName: string, payload: any) {
-    try {
-      const { data, error } = await supabase.functions.invoke(functionName, {
-        body: payload
-      });
-
-      if (error) {
-        console.error(`Edge function ${functionName} error:`, error);
-        throw new Error(`Failed to call ${functionName}: ${error.message}`);
-      }
-
-      return data;
-    } catch (error) {
-      console.error(`Edge function ${functionName} network error:`, error);
-      throw new Error(`Network error calling ${functionName}: ${error.message}`);
-    }
-  }
-
   static async submitRSVP(formData: Omit<RSVPSubmission, 'id' | 'unique_code' | 'created_at' | 'synced_to_sheets'>) {
     try {
-      // Insert RSVP into database
       const { data: rsvpData, error: rsvpError } = await supabase
         .from('rsvp_submissions')
         .insert([{
@@ -40,33 +21,51 @@ export class FormService {
 
       if (rsvpError) {
         console.error('RSVP database error:', rsvpError);
-        throw new Error('Failed to save RSVP');
+        throw new Error('Failed to submit RSVP');
       }
 
-      // Send email with unique code
+      // Send confirmation email
       try {
-        await this.callEdgeFunction('send-rsvp-email', {
-          email: formData.email,
-          name: formData.name,
-          uniqueCode: rsvpData.unique_code,
-          type: 'rsvp'
+        const emailResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-rsvp-email`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            name: formData.name,
+            uniqueCode: rsvpData.unique_code,
+            type: 'rsvp'
+          })
         });
-        console.log('Email sent successfully');
+
+        if (!emailResponse.ok) {
+          console.warn('Email sending failed, but RSVP was saved');
+        }
       } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-        // Don't throw here - RSVP is saved, email failure shouldn't block the process
+        console.warn('Email service error:', emailError);
       }
 
-      // Sync to Google Sheets
+      // Sync to Google Sheets (optional)
       try {
-        await this.callEdgeFunction('sync-to-sheets', {
-          type: 'rsvp',
-          recordId: rsvpData.id
+        const syncResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/sync-to-sheets`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'rsvp',
+            recordId: rsvpData.id
+          })
         });
-        console.log('Google Sheets sync successful');
+
+        if (!syncResponse.ok) {
+          console.warn('Google Sheets sync failed, but RSVP was saved');
+        }
       } catch (syncError) {
-        console.error('Google Sheets sync failed:', syncError);
-        // Don't throw here - RSVP is saved, sync failure shouldn't block the process
+        console.warn('Sync service error:', syncError);
       }
 
       return {
@@ -83,7 +82,6 @@ export class FormService {
 
   static async submitHotelReservation(formData: Omit<HotelReservation, 'id' | 'unique_code' | 'created_at' | 'synced_to_sheets'>) {
     try {
-      // Insert hotel reservation into database
       const { data: hotelData, error: hotelError } = await supabase
         .from('hotel_reservations')
         .insert([{
@@ -100,33 +98,51 @@ export class FormService {
 
       if (hotelError) {
         console.error('Hotel reservation database error:', hotelError);
-        throw new Error('Failed to save hotel reservation');
+        throw new Error('Failed to submit hotel reservation');
       }
 
-      // Send email with unique code
+      // Send confirmation email
       try {
-        await this.callEdgeFunction('send-rsvp-email', {
-          email: formData.email,
-          name: formData.name,
-          uniqueCode: hotelData.unique_code,
-          type: 'hotel'
+        const emailResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-rsvp-email`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            name: formData.name,
+            uniqueCode: hotelData.unique_code,
+            type: 'hotel'
+          })
         });
-        console.log('Hotel email sent successfully');
+
+        if (!emailResponse.ok) {
+          console.warn('Email sending failed, but reservation was saved');
+        }
       } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-        // Don't throw here - reservation is saved, email failure shouldn't block the process
+        console.warn('Email service error:', emailError);
       }
 
-      // Sync to Google Sheets
+      // Sync to Google Sheets (optional)
       try {
-        await this.callEdgeFunction('sync-to-sheets', {
-          type: 'hotel',
-          recordId: hotelData.id
+        const syncResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/sync-to-sheets`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'hotel',
+            recordId: hotelData.id
+          })
         });
-        console.log('Hotel Google Sheets sync successful');
+
+        if (!syncResponse.ok) {
+          console.warn('Google Sheets sync failed, but reservation was saved');
+        }
       } catch (syncError) {
-        console.error('Google Sheets sync failed:', syncError);
-        // Don't throw here - reservation is saved, sync failure shouldn't block the process
+        console.warn('Sync service error:', syncError);
       }
 
       return {
@@ -136,7 +152,7 @@ export class FormService {
       };
 
     } catch (error) {
-      console.error('Hotel reservation submission error:', error);
+      console.error('Hotel reservation error:', error);
       throw error;
     }
   }

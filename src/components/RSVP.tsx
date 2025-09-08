@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PaperAirplaneIcon, UsersIcon } from '@heroicons/react/24/outline';
+import { Send, Users } from 'lucide-react';
 import { FormService } from '../services/formService';
 import { useToast } from '../context/ToastContext';
 
@@ -101,7 +101,7 @@ const RSVP: React.FC = () => {
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <UsersIcon className="w-12 h-12 text-gold mx-auto mb-6" />
+          <Users className="w-12 h-12 text-gold mx-auto mb-6" />
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             RSVP
           </h2>
@@ -260,7 +260,7 @@ const RSVP: React.FC = () => {
                   : 'bg-gold hover:bg-gold/90 text-white transform hover:scale-105'
               }`}
             >
-              <PaperAirplaneIcon className="w-5 h-5" />
+              <Send className="w-5 h-5" />
               {isSubmitting ? 'Submitting...' : 'Send RSVP'}
             </button>
           </div>
