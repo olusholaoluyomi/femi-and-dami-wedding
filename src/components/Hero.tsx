@@ -16,29 +16,22 @@ const Hero: React.FC = () => {
           <Heart className="w-12 h-12 text-gold mx-auto mb-6 animate-pulse fill-current" />
         </div>
         
-        {/* Couples Logo */}
+        {/* Couples Logo/Image */}
         <div className="mb-8">
-          <div className="w-96 h-96 md:w-[30rem] md:h-[30rem] lg:w-[38rem] lg:h-[38rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-4 border-gold/30">
-            <div className="text-center">
-              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-mocha mb-4">
-                D & F
-              </h1>
-              <div className="w-24 h-0.5 bg-gold mx-auto mb-4"></div>
-              <p className="font-sans text-lg md:text-xl text-gold font-medium tracking-widest">
-                #TheHesed
-              </p>
-            </div>
+          <div className="w-80 h-80 md:w-[26rem] md:h-[26rem] lg:w-[34rem] lg:h-[34rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-4 border-gold/30 overflow-hidden">
+            <img 
+              src="/images/couple-logo.png"   // 🔄 Replace with your actual image path
+              alt="Couples Logo"
+              className="object-contain w-full h-full"
+            />
           </div>
         </div>
       
-        
         <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
         
-        {/* Main Tagline */}
-
         {/* Hashtag Meaning */}
         <p className="font-sans text-base md:text-lg text-dark-soft/90 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> comes from the Hebrew word hesed, a powerful term from the Bible that describes God’s faithful, covenantal love, a love that is steadfast, loyal, merciful, and full of grace. It is the kind of love that keeps its promises, endures challenges, and never gives up. By choosing this as our hashtag, we want to remind ourselves and everyone celebrating with us that our marriage is built on this same foundation of enduring, action-oriented love: a love that is not just spoken but lived out daily in commitment, kindness, and faithfulness.
+          Our Hashtag <span className="font-semibold text-mocha">"#TheHesed"</span> comes from the Hebrew word hesed, a powerful term from the Bible that describes God’s faithful, covenantal love...
         </p>
         
         {/* Event Date & Venue */}
