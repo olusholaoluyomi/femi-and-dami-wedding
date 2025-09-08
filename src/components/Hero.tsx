@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         <div className="mb-10">
           <div className="
             w-[90vw] h-[90vw]          /* ✅ Super big on mobile (fills screen width) */
-            sm:w-[28rem] sm:h-[28rem]  /* Small tablets */
+            sm:w-[30rem] sm:h-[30rem]  /* Small tablets */
             md:w-[38rem] md:h-[38rem]  /* Medium devices */
             lg:w-[50rem] lg:h-[50rem]  /* Large screens */
             mx-auto flex items-center justify-center 
