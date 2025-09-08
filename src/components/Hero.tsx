@@ -19,7 +19,16 @@ const Hero: React.FC = () => {
         
         {/* Couples Logo/Image */}
         <div className="mb-10">
-          <div className="w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] lg:w-[46rem] lg:h-[46rem] mx-auto flex items-center justify-center bg-gradient-to-br from-gold/20 to-beige/30 rounded-full border-8 border-gold/30 overflow-hidden shadow-xl">
+          <div className="
+            w-[90vw] h-[90vw]          /* ✅ Super big on mobile (fills screen width) */
+            sm:w-[28rem] sm:h-[28rem]  /* Small tablets */
+            md:w-[38rem] md:h-[38rem]  /* Medium devices */
+            lg:w-[50rem] lg:h-[50rem]  /* Large screens */
+            mx-auto flex items-center justify-center 
+            bg-gradient-to-br from-gold/20 to-beige/30 
+            rounded-full border-8 border-gold/30 
+            overflow-hidden shadow-2xl
+          ">
             <img 
               src={coupleLogo} 
               alt="Couples Logo" 
