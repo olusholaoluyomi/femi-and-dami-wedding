@@ -316,9 +316,16 @@ const GiftRegistry: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
                       >
-                    Continue with Revolut
-                  </a>
-
+                    Continue with Revolut for the Pound Account
+                  </a> 
+                  alternative, you can   <a
+                    href="https://flutterwave.com/donate/vmlqzuuy3qpu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
+                      >
+                    Continue with Fluttervwave for the Naira Account
+                  </a> 
                 </p>
               </div>
             </div>
