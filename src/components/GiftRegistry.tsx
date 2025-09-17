@@ -237,6 +237,9 @@ const GiftRegistry: React.FC = () => {
           <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
             
           </p>
+           <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
+            
+          </p>
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
