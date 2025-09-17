@@ -235,10 +235,10 @@ const GiftRegistry: React.FC = () => {
             </div>
           </div>
           <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-            
+             {/* Used this to add extra height cause I can't stress myself */}
           </p>
            <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-            
+            {/* Used this to add extra height cause I can't stress myself */}
           </p>
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
