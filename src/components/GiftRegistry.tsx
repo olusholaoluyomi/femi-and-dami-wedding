@@ -177,14 +177,7 @@ const GiftRegistry: React.FC = () => {
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Gift Registry
           </h2>
-          <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
-          <div className="glass-effect p-6 rounded-2xl max-w-2xl mx-auto">
-            <p className="font-sans text-sm text-mocha">
-              <strong>Why a digital registry?</strong> Since we're celebrating in a different city from where we live, 
-              we've created this convenient online registry. Items will be shipped directly to our home, 
-              making it easier for everyone!
-            </p>
-          </div>
+          
         </div>
  {/* General Information Information */}
         <div className="mt-16 text-center">
@@ -192,6 +185,14 @@ const GiftRegistry: React.FC = () => {
             <h3 className="font-serif text-2xl font-semibold text-mocha mb-4">
               Gift Registry Guidelines
             </h3>
+            <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
+          <div className="glass-effect p-6 rounded-2xl max-w-2xl mx-auto">
+            <p className="font-sans text-sm text-mocha">
+              <strong>Why a digital registry?</strong> Since we're celebrating in a different city from where we live, 
+              we've created this convenient online registry. Items will be shipped directly to our home, 
+              making it easier for everyone!
+            </p>
+          </div>
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
                 <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
