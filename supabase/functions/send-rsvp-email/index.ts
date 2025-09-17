@@ -36,39 +36,6 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    // --- Audience safeguard ---
-    const audienceId = "general";
-
-    // Check if this email already exists in the audience
-    const contactsRes = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
-      headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!contactsRes.ok) {
-      console.error("Failed to fetch contacts:", await contactsRes.text());
-      return new Response(JSON.stringify({ error: 'Could not verify audience' }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
-
-    const contacts = await contactsRes.json();
-    const alreadyExists = contacts.data?.some(
-      (contact: any) => contact.email.toLowerCase() === email.toLowerCase()
-    );
-
-    if (alreadyExists) {
-      console.log(`Skipping email — already sent to ${email}`);
-      return new Response(
-        JSON.stringify({ success: false, message: "You have already RSVP’d / registered. No duplicate email was sent." }),
-        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-    // --- End safeguard ---
-
     // Determine email content based on type
     const isRSVP = type === 'rsvp';
     const subject = isRSVP 
@@ -130,7 +97,7 @@ Deno.serve(async (req: Request) => {
             <p style="margin: 10px 0;">
               <a href="https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471" target="_blank" style="background: #D4AF37; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold;">🎁 Registry Bag</a>
             </p>
-          </div>
+          </div>wishlis
 
           <p style="color: #4A4A4A; line-height: 1.6;">
             With love,<br>
@@ -184,7 +151,7 @@ Deno.serve(async (req: Request) => {
       body: JSON.stringify({
         from: 'Dami & Femi Wedding <noreply@thehesedforever.com>',
         to: [email],
-        subject,
+        subject: subject,
         html: emailContent,
       }),
     });
@@ -200,16 +167,6 @@ Deno.serve(async (req: Request) => {
 
     const emailResult = await emailResponse.json();
     console.log('Email sent successfully:', emailResult);
-
-    // Add the contact to the General audience
-    await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, firstName: name }),
-    });
 
     return new Response(JSON.stringify({ success: true, emailId: emailResult.id }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
