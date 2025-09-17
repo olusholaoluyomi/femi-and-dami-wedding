@@ -165,8 +165,6 @@ const GiftRegistry: React.FC = () => {
     : giftItems.filter(item => item.category === selectedCategory);
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-ivory to-beige relative overflow-hidden">
-      {/* Background Decorations */}
     
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
