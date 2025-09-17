@@ -197,7 +197,9 @@ const GiftRegistry: React.FC = () => {
               <div>
                 <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
                 <p className="font-sans text-sm text-dark-soft mb-4">
-                  
+                  Since we're celebrating in a different city from where we live, we've created this convenient 
+                  online registry, so you won't 
+                  need to worry about transporting your gifts to the wedding venue.
                 </p>
               </div>
               <div>
@@ -233,8 +235,7 @@ const GiftRegistry: React.FC = () => {
             </div>
           </div>
           <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-            Your presence is the greatest gift, but if you'd like to bless us with something special, 
-            we've curated a selection of items that will help us build our new home together.
+            
           </p>
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
