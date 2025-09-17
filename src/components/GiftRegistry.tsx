@@ -233,6 +233,10 @@ const GiftRegistry: React.FC = () => {
               </p>
             </div>
           </div>
+          <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
+            Your presence is the greatest gift, but if you'd like to bless us with something special, 
+            we've curated a selection of items that will help us build our new home together.
+          </p>
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
