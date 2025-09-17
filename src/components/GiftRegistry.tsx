@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Gift, ExternalLink, Heart, ShoppingCart, Star } from 'lucide-react';
- 
+
 interface GiftItem {
   id: string;
   name: string;
@@ -177,69 +177,88 @@ const GiftRegistry: React.FC = () => {
           <h2 className="font-serif text-5xl md:text-6xl font-bold text-mocha mb-4">
             Gift Registry
           </h2>
-          
         </div>
- {/* General Information Information */}
-        <div className="mt-16 text-center">
-          <div className="glass-effect p-8 rounded-3xl max-w-4xl mx-auto">
-            <h3 className="font-serif text-2xl font-semibold text-mocha mb-4">
+
+        {/* Gift Registry Guidelines Section */}
+        <div className="mt-16 max-w-5xl mx-auto space-y-10">
+          <div className="text-center">
+            <h3 className="font-serif text-3xl font-semibold text-mocha mb-3">
               Gift Registry Guidelines
             </h3>
             <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
-          <div className="glass-effect p-6 rounded-2xl max-w-2xl mx-auto">
-            <p className="font-sans text-sm text-mocha">
-              <strong>Why a digital registry?</strong> Since we're celebrating in a different city from where we live, 
-              we've created this convenient online registry. Items will be shipped directly to our home, 
+          </div>
+
+          {/* Why Digital Registry */}
+          <div className="bg-gold/5 p-6 rounded-2xl shadow-sm">
+            <p className="font-sans text-base text-mocha leading-relaxed">
+              <strong>Why a digital registry?</strong> Since we're celebrating in a
+              different city from where we live, we've created this convenient
+              online registry. Items will be shipped directly to our home,
               making it easier for everyone!
             </p>
           </div>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div>
-                <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
-                <p className="font-sans text-sm text-dark-soft mb-4">
-                  Since we're celebrating in a different city from where we live, we've created this convenient 
-                  online registry, so you won't 
-                  need to worry about transporting your gifts to the wedding venue.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-sans font-semibold text-mocha mb-2">Alternative Options</h4>
-                <p className="font-sans text-sm text-dark-soft mb-4">
-                  If you prefer to give a monetary gift, we've also set up options for cash gifts 
-                  that can be transferred directly to our account. 
-                  <a
-                    href="https://revolut.me/amiria2122"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
-                      >
-                    Continue with Revolut for the Pound Account
-                  </a> 
-                  alternative, you can   <a
-                    href="https://flutterwave.com/donate/vmlqzuuy3qpu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
-                      >
-                    Continue with Fluttervwave for the Naira Account
-                  </a> 
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 p-4 bg-gold/10 rounded-xl">
-              <p className="font-sans text-sm text-mocha">
-                <strong>How it works:</strong> Simply click "Buy on Amazon" on any item you'd like to gift us. 
-                Amazon will handle delivery directly to our home. Your presence at our wedding is the greatest 
-                gift of all - these items are just suggestions for those who wish to contribute to our new journey together.
+
+          {/* Two-column Info */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white/60 rounded-xl p-6 shadow-sm">
+              <h4 className="font-sans font-semibold text-mocha text-lg mb-2">
+                Shipping Information
+              </h4>
+              <p className="font-sans text-sm text-dark-soft leading-relaxed">
+                Since we're celebrating in a different city from where we live,
+                we've created this convenient online registry, so you won't
+                need to worry about transporting your gifts to the wedding venue.
               </p>
             </div>
+
+            <div className="bg-white/60 rounded-xl p-6 shadow-sm">
+              <h4 className="font-sans font-semibold text-mocha text-lg mb-2">
+                Alternative Options
+              </h4>
+              <p className="font-sans text-sm text-dark-soft leading-relaxed mb-4">
+                If you prefer to give a monetary gift, we've also set up options
+                for cash gifts that can be transferred directly to our account.
+              </p>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="https://revolut.me/amiria2122"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gold hover:bg-gold/90 text-white text-center px-4 py-3 rounded-lg font-sans font-medium transition-all duration-300 shadow-md"
+                >
+                  💷 Give via Revolut (Pound Account)
+                </a>
+                <a
+                  href="https://flutterwave.com/donate/vmlqzuuy3qpu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gold hover:bg-gold/90 text-white text-center px-4 py-3 rounded-lg font-sans font-medium transition-all duration-300 shadow-md"
+                >
+                  🇳🇬 Give via Flutterwave (Naira Account)
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-             {/* Used this to add extra height cause I can't stress myself */}
-          </p>
-           <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-            {/* Used this to add extra height cause I can't stress myself */}
-          </p>
+
+          {/* How it works */}
+          <div className="bg-gold/10 p-6 rounded-xl border border-gold/20 shadow-sm">
+            <p className="font-sans text-sm text-mocha leading-relaxed">
+              <strong>How it works:</strong> Simply click "Buy on Amazon" on any
+              item you'd like to gift us. Amazon will handle delivery directly to
+              our home. Your presence at our wedding is the greatest gift of all –
+              these items are just suggestions for those who wish to contribute to
+              our new journey together.
+            </p>
+          </div>
+        </div>
+
+        <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
+          {/* Used this to add extra height cause I can't stress myself */}
+        </p>
+        <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
+          {/* Used this to add extra height cause I can't stress myself */}
+        </p>
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
@@ -320,18 +339,9 @@ const GiftRegistry: React.FC = () => {
                     href={item.amazonUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gold hover:bg-gold/90 text-white px-4 py-3 rounded-xl font-sans font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                    className="flex-1 bg-gold text-white py-3 rounded-xl font-sans font-medium flex items-center justify-center gap-2 hover:bg-gold/90 transition-all"
                   >
-                    <ShoppingCart className="w-4 h-4" />
-                    Buy on Amazon
-                  </a>
-                  <a
-                    href={item.amazonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-transparent border-2 border-gold/30 text-gold hover:bg-gold/10 px-3 py-3 rounded-xl transition-all duration-300 flex items-center justify-center"
-                  >
-                    <ExternalLink className="w-4 h-4" />
+                    Buy on Amazon <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
               </div>
@@ -339,8 +349,11 @@ const GiftRegistry: React.FC = () => {
           ))}
         </div>
 
-       
-        </div>
+        {filteredItems.length === 0 && (
+          <div className="text-center py-16">
+            <p className="font-sans text-dark-soft text-lg">No items in this category yet. Check back soon!</p>
+          </div>
+        )}
       </div>
     </section>
   );
