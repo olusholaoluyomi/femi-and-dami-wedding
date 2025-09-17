@@ -179,78 +179,67 @@ const GiftRegistry: React.FC = () => {
           </h2>
         </div>
 
-        {/* Gift Registry Guidelines Section */}
-        <div className="mt-16 max-w-5xl mx-auto space-y-10">
-          <div className="text-center">
-            <h3 className="font-serif text-3xl font-semibold text-mocha mb-3">
-              Gift Registry Guidelines
-            </h3>
-            <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
-          </div>
+{/* Gift Registry Guidelines Section */}
+<div className="mt-16 max-w-5xl mx-auto space-y-10">
+  <div className="text-center">
+    <h3 className="font-serif text-3xl font-semibold text-mocha mb-3">
+      Gift Registry Guidelines
+    </h3>
+    <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
+  </div>
 
-          {/* Why Digital Registry */}
-          <div className="bg-gold/5 p-6 rounded-2xl shadow-sm">
-            <p className="font-sans text-base text-mocha leading-relaxed">
-              <strong>Why a digital registry?</strong> Since we're celebrating in a
-              different city from where we live, we've created this convenient
-              online registry. Items will be shipped directly to our home,
-              making it easier for everyone!
-            </p>
-          </div>
+  {/* Why Digital Registry (merged with shipping info) */}
+  <div className="bg-gold/5 p-6 rounded-2xl shadow-sm">
+    <p className="font-sans text-base text-mocha leading-relaxed">
+      <strong>Why a digital registry?</strong> Since we're celebrating in a
+      different city from where we live, we've created this convenient online
+      registry. This way, items will be shipped directly to our home and you
+      won’t need to worry about transporting gifts to the wedding venue. It
+      makes the process smoother for everyone!
+    </p>
+  </div>
 
-          {/* Two-column Info */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/60 rounded-xl p-6 shadow-sm">
-              <h4 className="font-sans font-semibold text-mocha text-lg mb-2">
-                Shipping Information
-              </h4>
-              <p className="font-sans text-sm text-dark-soft leading-relaxed">
-                Since we're celebrating in a different city from where we live,
-                we've created this convenient online registry, so you won't
-                need to worry about transporting your gifts to the wedding venue.
-              </p>
-            </div>
+  {/* Alternative Options */}
+  <div className="bg-white/60 rounded-xl p-6 shadow-sm">
+    <h4 className="font-sans font-semibold text-mocha text-lg mb-4">
+      Alternative Options
+    </h4>
+    <p className="font-sans text-sm text-dark-soft leading-relaxed mb-4">
+      If you prefer to give a monetary gift, we've set up secure options for
+      cash gifts that can be transferred directly to our accounts.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4">
+      <a
+        href="https://revolut.me/amiria2122"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 bg-gold text-white py-3 rounded-xl font-sans font-medium flex items-center justify-center gap-2 hover:bg-gold/90 transition-all"
+      >
+        💷 Gift via Revolut (Pound Account)
+      </a>
+      <a
+        href="https://flutterwave.com/donate/vmlqzuuy3qpu"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 bg-gold text-white py-3 rounded-xl font-sans font-medium flex items-center justify-center gap-2 hover:bg-gold/90 transition-all"
+      >
+        🇳🇬 Gift via Flutterwave (Naira Account)
+      </a>
+    </div>
+  </div>
 
-            <div className="bg-white/60 rounded-xl p-6 shadow-sm">
-              <h4 className="font-sans font-semibold text-mocha text-lg mb-2">
-                Alternative Options
-              </h4>
-              <p className="font-sans text-sm text-dark-soft leading-relaxed mb-4">
-                If you prefer to give a monetary gift, we've also set up options
-                for cash gifts that can be transferred directly to our account.
-              </p>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://revolut.me/amiria2122"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gold hover:bg-gold/90 text-white text-center px-4 py-3 rounded-lg font-sans font-medium transition-all duration-300 shadow-md"
-                >
-                  💷 Give via Revolut (Pound Account)
-                </a>
-                <a
-                  href="https://flutterwave.com/donate/vmlqzuuy3qpu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gold hover:bg-gold/90 text-white text-center px-4 py-3 rounded-lg font-sans font-medium transition-all duration-300 shadow-md"
-                >
-                  🇳🇬 Give via Flutterwave (Naira Account)
-                </a>
-              </div>
-            </div>
-          </div>
+  {/* How it works */}
+  <div className="bg-gold/10 p-6 rounded-xl border border-gold/20 shadow-sm">
+    <p className="font-sans text-sm text-mocha leading-relaxed">
+      <strong>How it works:</strong> Simply click "Buy on Amazon" on any
+      item you'd like to gift us. Amazon will handle delivery directly to
+      our home. Your presence at our wedding is the greatest gift of all –
+      these items are just suggestions for those who wish to contribute to
+      our new journey together.
+    </p>
+  </div>
+</div>
 
-          {/* How it works */}
-          <div className="bg-gold/10 p-6 rounded-xl border border-gold/20 shadow-sm">
-            <p className="font-sans text-sm text-mocha leading-relaxed">
-              <strong>How it works:</strong> Simply click "Buy on Amazon" on any
-              item you'd like to gift us. Amazon will handle delivery directly to
-              our home. Your presence at our wedding is the greatest gift of all –
-              these items are just suggestions for those who wish to contribute to
-              our new journey together.
-            </p>
-          </div>
-        </div>
 
         <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
           {/* Used this to add extra height cause I can't stress myself */}
