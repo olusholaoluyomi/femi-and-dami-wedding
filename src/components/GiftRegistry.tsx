@@ -168,7 +168,6 @@ const GiftRegistry: React.FC = () => {
     <section className="py-20 px-4 bg-gradient-to-b from-ivory to-beige relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-20 right-10 w-32 h-32 golden-swirl"></div>
-      <div className="absolute bottom-32 left-5 w-40 h-40 golden-swirl-2"></div>
     
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
