@@ -178,10 +178,6 @@ const GiftRegistry: React.FC = () => {
             Gift Registry
           </h2>
           <div className="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
-          <p className="font-sans text-lg text-dark-soft max-w-3xl mx-auto mb-4">
-            Your presence is the greatest gift, but if you'd like to bless us with something special, 
-            we've curated a selection of items that will help us build our new home together.
-          </p>
           <div className="glass-effect p-6 rounded-2xl max-w-2xl mx-auto">
             <p className="font-sans text-sm text-mocha">
               <strong>Why a digital registry?</strong> Since we're celebrating in a different city from where we live, 
@@ -190,7 +186,53 @@ const GiftRegistry: React.FC = () => {
             </p>
           </div>
         </div>
-
+ {/* General Information Information */}
+        <div className="mt-16 text-center">
+          <div className="glass-effect p-8 rounded-3xl max-w-4xl mx-auto">
+            <h3 className="font-serif text-2xl font-semibold text-mocha mb-4">
+              Gift Registry Guidelines
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 text-left">
+              <div>
+                <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
+                <p className="font-sans text-sm text-dark-soft mb-4">
+                  Since we're celebrating in a different city from where we live, we've created this convenient 
+                  online registry, so you won't 
+                  need to worry about transporting your gifts to the wedding venue.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-sans font-semibold text-mocha mb-2">Alternative Options</h4>
+                <p className="font-sans text-sm text-dark-soft mb-4">
+                  If you prefer to give a monetary gift, we've also set up options for cash gifts 
+                  that can be transferred directly to our account. 
+                  <a
+                    href="https://revolut.me/amiria2122"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
+                      >
+                    Continue with Revolut for the Pound Account
+                  </a> 
+                  alternative, you can   <a
+                    href="https://flutterwave.com/donate/vmlqzuuy3qpu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
+                      >
+                    Continue with Fluttervwave for the Naira Account
+                  </a> 
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 p-4 bg-gold/10 rounded-xl">
+              <p className="font-sans text-sm text-mocha">
+                <strong>How it works:</strong> Simply click "Buy on Amazon" on any item you'd like to gift us. 
+                Amazon will handle delivery directly to our home. Your presence at our wedding is the greatest 
+                gift of all - these items are just suggestions for those who wish to contribute to our new journey together.
+              </p>
+            </div>
+          </div>
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
@@ -290,53 +332,7 @@ const GiftRegistry: React.FC = () => {
           ))}
         </div>
 
-        {/* Additional Information */}
-        <div className="mt-16 text-center">
-          <div className="glass-effect p-8 rounded-3xl max-w-4xl mx-auto">
-            <h3 className="font-serif text-2xl font-semibold text-mocha mb-4">
-              Gift Registry Guidelines
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div>
-                <h4 className="font-sans font-semibold text-mocha mb-2">Shipping Information</h4>
-                <p className="font-sans text-sm text-dark-soft mb-4">
-                  Since we're celebrating in a different city from where we live, we've created this convenient 
-                  online registry, so you won't 
-                  need to worry about transporting your gifts to the wedding venue.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-sans font-semibold text-mocha mb-2">Alternative Options</h4>
-                <p className="font-sans text-sm text-dark-soft mb-4">
-                  If you prefer to give a monetary gift, we've also set up options for cash gifts 
-                  that can be transferred directly to our account. 
-                  <a
-                    href="https://revolut.me/amiria2122"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
-                      >
-                    Continue with Revolut for the Pound Account
-                  </a> 
-                  alternative, you can   <a
-                    href="https://flutterwave.com/donate/vmlqzuuy3qpu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 font-medium underline transition-colors duration-300"
-                      >
-                    Continue with Fluttervwave for the Naira Account
-                  </a> 
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 p-4 bg-gold/10 rounded-xl">
-              <p className="font-sans text-sm text-mocha">
-                <strong>How it works:</strong> Simply click "Buy on Amazon" on any item you'd like to gift us. 
-                Amazon will handle delivery directly to our home. Your presence at our wedding is the greatest 
-                gift of all - these items are just suggestions for those who wish to contribute to our new journey together.
-              </p>
-            </div>
-          </div>
+       
         </div>
       </div>
     </section>
