@@ -95,7 +95,7 @@ Deno.serve(async (req: Request) => {
               <a href="https://flutterwave.com/donate/vmlqzuuy3qpu" target="_blank" style="background: #D4AF37; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold;">🇳🇬 Give via Flutterwave</a>
             </p>
             <p style="margin: 10px 0;">
-              <a href="https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471" target="_blank" style="background: #D4AF37; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold;">🎁 View Our Amazon Wishlist</a>
+              <a href="https://www.amazon.co.uk/hz/wishlist/ls/QTIVU9W0Q471" target="_blank" style="background: #D4AF37; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold;">🎁 Registry Bag</a>
             </p>
           </div>wishlis
 
