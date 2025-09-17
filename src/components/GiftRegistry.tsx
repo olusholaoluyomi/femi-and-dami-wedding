@@ -169,9 +169,7 @@ const GiftRegistry: React.FC = () => {
       {/* Background Decorations */}
       <div className="absolute top-20 right-10 w-32 h-32 golden-swirl"></div>
       <div className="absolute bottom-32 left-5 w-40 h-40 golden-swirl-2"></div>
-      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gold opacity-5 organic-shape"></div>
-      
-   
+    
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
