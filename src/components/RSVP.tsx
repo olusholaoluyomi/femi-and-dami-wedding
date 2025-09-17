@@ -73,9 +73,9 @@ const RSVP: React.FC = () => {
             }
           }, 500);
           
-          addToast(`Thank you for your RSVP! Your entry code is ${result.uniqueCode}. Check your email for details. We've scrolled you to the accommodation section.`, 'success');
+          addToast(`Thank you for your RSVP! Check your email for details. We've scrolled you to the accommodation section.`, 'success');
         } else {
-          addToast(`Thank you for your RSVP! Your entry code is ${result.uniqueCode}. Check your email for confirmation details.`, 'success');
+          addToast(`Thank you for your RSVP! Check your email for confirmation details.`, 'success');
         }
       }
     } catch (error) {
